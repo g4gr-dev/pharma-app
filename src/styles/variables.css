@@ -1,0 +1,50 @@
+:root {
+  /* Colors */
+  --color-primary: #006D77;
+  --color-primary-light: #83C5BE;
+  --color-secondary: #2A9D8F;
+  --color-accent: #E29578;
+  
+  --color-text-main: #222222;
+  --color-text-secondary: #666666;
+  --color-text-light: #FFFFFF;
+  
+  --color-bg-body: #F4F6F8;
+  --color-bg-card: #FFFFFF;
+  --color-bg-input: #F0F2F4;
+  
+  --color-success: #28a745;
+  --color-warning: #ffc107;
+  --color-danger: #dc3545;
+  
+  /* Typography */
+  --font-family-base: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-size-xs: 12px;
+  --font-size-sm: 14px;
+  --font-size-md: 16px;
+  --font-size-lg: 20px;
+  --font-size-xl: 24px;
+  --font-size-xxl: 32px;
+  
+  /* Spacing */
+  --spacing-xs: 4px;
+  --spacing-sm: 8px;
+  --spacing-md: 16px;
+  --spacing-lg: 24px;
+  --spacing-xl: 32px;
+  
+  /* Borders */
+  --border-radius-sm: 8px;
+  --border-radius-md: 12px;
+  --border-radius-lg: 20px;
+  --border-radius-round: 50%;
+  
+  /* Shadows */
+  --shadow-sm: 0 2px 4px rgba(0,0,0,0.05);
+  --shadow-md: 0 4px 12px rgba(0,0,0,0.08);
+  --shadow-lg: 0 8px 24px rgba(0,0,0,0.12);
+
+  /* Transitions */
+  --transition-fast: 0.2s ease;
+  --transition-normal: 0.3s ease;
+}
