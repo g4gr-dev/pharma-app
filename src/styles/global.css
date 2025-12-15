@@ -56,6 +56,10 @@ a {
     color: var(--color-text-secondary);
 }
 
+.text-warning {
+    color: var(--color-warning);
+}
+
 .flex {
     display: flex;
 }
@@ -64,8 +68,12 @@ a {
     flex-direction: column;
 }
 
+.flex-row {
+    flex-direction: row;
+}
+
 .justify-center {
-    justify-content: center;
+    justify-content: center center;
 }
 
 .align-center {

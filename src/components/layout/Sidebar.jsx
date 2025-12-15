@@ -32,7 +32,7 @@ const Sidebar = () => {
             }}
         >
             <div style={{ padding: '24px', borderBottom: '1px solid #f0f0f0' }}>
-                <h1 className="text-primary text-bold" style={{ fontSize: '24px' }}>SaludApp</h1>
+                <h1 className="text-primary text-bold" style={{ fontSize: '1.5rem' }}>Central Farma</h1>
             </div>
 
             <div className="flex-grow" style={{ padding: '16px', overflowY: 'auto' }}>

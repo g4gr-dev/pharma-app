@@ -10,16 +10,16 @@ const Button = ({
     className = ''
 }) => {
     const baseStyle = {
-        padding: '12px 24px',
+        padding: '1rem 2rem',
         borderRadius: 'var(--border-radius-md)',
         fontSize: 'var(--font-size-md)',
         fontWeight: '600',
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
-        gap: '8px',
+        gap: '0.5rem',
         transition: 'var(--transition-fast)',
-        width: fullWidth ? '100%' : 'auto',
+        width: fullWidth ? 'fit-content' : 'auto',
     };
 
     const variants = {

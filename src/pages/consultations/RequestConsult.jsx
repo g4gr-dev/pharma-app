@@ -14,7 +14,7 @@ const RequestConsult = () => {
                 <button onClick={() => navigate(-1)} style={{ background: 'none', padding: 0 }}>
                     <span style={{ fontSize: '24px' }}>←</span>
                 </button>
-                <span className="text-bold" style={{ fontSize: '18px' }}>Solicitar Consulta</span>
+                <span className="text-bold" style={{ fontSize: '18px', marginInlineStart: '1rem' }}>Solicitar Consulta</span>
                 <div style={{ width: '24px' }}></div>
             </div>
 
@@ -42,26 +42,7 @@ const RequestConsult = () => {
                     )}
                 </section>
 
-                {/* Urgency */}
-                <section style={{ marginBottom: '24px' }}>
-                    <h3 className="text-bold" style={{ marginBottom: '16px' }}>Urgencia</h3>
-                    <div className="flex gap-md">
-                        <label className="flex align-center gap-sm" style={{ padding: '12px', border: '1px solid #E0E0E0', borderRadius: '8px', flex: 1 }}>
-                            <input type="radio" name="urgency" checked={urgency === 'normal'} onChange={() => setUrgency('normal')} />
-                            <div>
-                                <div style={{ fontWeight: '600' }}>Normal</div>
-                                <div style={{ fontSize: '12px', color: '#666' }}>15-30 min</div>
-                            </div>
-                        </label>
-                        <label className="flex align-center gap-sm" style={{ padding: '12px', border: '1px solid #E0E0E0', borderRadius: '8px', flex: 1 }}>
-                            <input type="radio" name="urgency" checked={urgency === 'urgent'} onChange={() => setUrgency('urgent')} />
-                            <div>
-                                <div style={{ fontWeight: '600', color: 'var(--color-danger)' }}>Urgente</div>
-                                <div style={{ fontSize: '12px', color: '#666' }}>Inmediata</div>
-                            </div>
-                        </label>
-                    </div>
-                </section>
+
 
                 {/* Description */}
                 <section style={{ marginBottom: '24px' }}>
@@ -75,7 +56,7 @@ const RequestConsult = () => {
 
                 {/* Info Shared */}
                 <section>
-                    <h3 className="text-bold" style={{ marginBottom: '16px' }}>Información Relevante</h3>
+                    <h3 className="text-bold" style={{ marginBottom: '1rem' }}>Compartir Información Relevante</h3>
                     <div className="flex flex-col gap-sm">
                         <label className="flex align-center gap-sm"><input type="checkbox" defaultChecked /> Compartir signos vitales</label>
                         <label className="flex align-center gap-sm"><input type="checkbox" defaultChecked /> Compartir medicación actual</label>
@@ -84,8 +65,32 @@ const RequestConsult = () => {
 
             </div>
 
-            <div style={{ padding: '24px', borderTop: '1px solid #f0f0f0' }}>
-                <Button fullWidth onClick={() => navigate('/consultations/doctors')}>Buscar Médico Disponible</Button>
+            <div style={{ display: 'flex', gap: '1rem', padding: '2rem', borderTop: '1px solid #f0f0f0', alignItems: 'center' }}>
+                <button
+                    onClick={() => setUrgency(urgency === 'normal' ? 'urgent' : 'normal')}
+                    style={{
+                        padding: '12px',
+                        borderRadius: '8px',
+                        border: urgency === 'urgent' ? '2px solid var(--color-danger)' : '1px solid #E0E0E0',
+                        backgroundColor: urgency === 'urgent' ? '#E0F7FA' : 'white',
+                        color: urgency === 'urgent' ? 'var(--color-danger)' : '#666',
+                        fontWeight: '600',
+                        display: 'flex',
+                        flexDirection: 'column',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        minWidth: '80px',
+                        cursor: 'pointer'
+                    }}
+                >
+                    <span style={{ fontSize: '20px' }}>{urgency === 'urgent' ? '🚨' : '📅'}</span>
+                    <span style={{ fontSize: '10px' }}>{urgency === 'urgent' ? 'Urgente' : 'Normal'}</span>
+                </button>
+                <div style={{ flex: 1 }}>
+                    <Button fullWidth onClick={() => navigate('/consultations/doctors')}>
+                        Buscar Médico
+                    </Button>
+                </div>
             </div>
         </div>
     );

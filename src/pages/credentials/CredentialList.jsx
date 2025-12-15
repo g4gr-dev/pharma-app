@@ -33,11 +33,10 @@ const CredentialList = () => {
                         style={{
                             height: '180px',
                             backgroundColor: card.color,
-                            borderRadius: '16px',
-                            marginBottom: '24px',
-                            padding: '24px',
+                            borderRadius: '1rem',
+                            marginBottom: '2rem',
+                            padding: '2rem',
                             color: 'white',
-                            position: 'relative',
                             boxShadow: '0 8px 16px rgba(0,0,0,0.2)',
                             cursor: 'pointer'
                         }}
