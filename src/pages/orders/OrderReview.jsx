@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Button from '../../components/common/Button';
+import './OrderReview.css';
 
 const OrderReview = () => {
     const navigate = useNavigate();
@@ -13,42 +14,42 @@ const OrderReview = () => {
     const total = cart.reduce((acc, item) => acc + (item.price * item.qty), 0);
 
     return (
-        <div className="flex flex-col h-full bg-white">
+        <div className="order-review-container">
             {/* Header */}
-            <div className="flex align-center justify-between" style={{ padding: '16px 24px' }}>
-                <button onClick={() => navigate(-1)} style={{ background: 'none', padding: 0 }}>
-                    <span style={{ fontSize: '24px' }}>←</span>
+            <div className="review-header">
+                <button onClick={() => navigate(-1)} className="review-back-btn">
+                    <span className="review-back-icon">←</span>
                 </button>
-                <span className="text-bold" style={{ fontSize: '18px' }}>Mi Pedido</span>
-                <div style={{ width: '24px' }}></div>
+                <span className="review-title">Mi Pedido</span>
+                <div className="review-header-spacer"></div>
             </div>
 
-            <div className="scroll-content flex-grow" style={{ padding: '24px', overflowY: 'auto' }}>
+            <div className="review-content">
 
                 {cart.map(item => (
-                    <div key={item.id} className="card flex justify-between align-center" style={{ padding: '16px', marginBottom: '16px' }}>
+                    <div key={item.id} className="card review-item-card">
                         <div>
-                            <div className="text-bold">{item.name}</div>
-                            <div style={{ fontSize: '14px', color: '#666' }}>${item.price}</div>
+                            <div className="review-item-name">{item.name}</div>
+                            <div className="review-item-price">${item.price}</div>
                         </div>
-                        <div className="flex align-center gap-md">
-                            <button style={{ width: '24px', height: '24px', borderRadius: '50%', border: '1px solid #ddd', background: 'white' }}>-</button>
+                        <div className="review-item-qty-controls">
+                            <button className="qty-btn-minus">-</button>
                             <span>{item.qty}</span>
-                            <button style={{ width: '24px', height: '24px', borderRadius: '50%', backgroundColor: 'var(--color-primary)', color: 'white', border: 'none' }}>+</button>
+                            <button className="qty-btn-plus">+</button>
                         </div>
                     </div>
                 ))}
 
-                <div style={{ marginTop: '24px', borderTop: '1px solid #eee', paddingTop: '16px' }}>
-                    <div className="flex justify-between" style={{ marginBottom: '8px' }}>
+                <div className="review-summary">
+                    <div className="summary-row">
                         <span>Subtotal</span>
                         <span>${total}</span>
                     </div>
-                    <div className="flex justify-between" style={{ marginBottom: '8px' }}>
+                    <div className="summary-row">
                         <span>Envío</span>
                         <span>$300</span>
                     </div>
-                    <div className="flex justify-between text-bold" style={{ fontSize: '18px', marginTop: '16px' }}>
+                    <div className="summary-total">
                         <span>Total</span>
                         <span>${total + 300}</span>
                     </div>
@@ -56,7 +57,7 @@ const OrderReview = () => {
 
             </div>
 
-            <div style={{ padding: '24px', borderTop: '1px solid #f0f0f0' }}>
+            <div className="review-footer">
                 <Button fullWidth onClick={() => navigate('/orders/pharmacies')}>Seleccionar Farmacia</Button>
             </div>
         </div>

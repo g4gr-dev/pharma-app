@@ -1,5 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
+import './AddMedicationOptions.css';
 
 const AddMedicationOptions = () => {
     const navigate = useNavigate();
@@ -26,28 +27,27 @@ const AddMedicationOptions = () => {
     ];
 
     return (
-        <div className="flex flex-col h-full bg-white">
+        <div className="add-med-options-container">
             {/* Header */}
-            <div className="flex align-center justify-between" style={{ padding: '16px 24px' }}>
-                <button onClick={() => navigate(-1)} style={{ background: 'none', padding: 0 }}>
-                    <span style={{ fontSize: '24px' }}>←</span>
+            <div className="add-med-header">
+                <button onClick={() => navigate(-1)} className="add-med-back-btn">
+                    <span className="add-med-back-icon">←</span>
                 </button>
-                <span className="text-bold" style={{ fontSize: '18px' }}>Agregar Medicamento</span>
-                <div style={{ width: '24px' }}></div>
+                <span className="add-med-header-title">Agregar Medicamento</span>
+                <div className="add-med-header-spacer"></div>
             </div>
 
-            <div className="flex-col gap-md" style={{ padding: '24px' }}>
+            <div className="add-med-content">
                 {options.map((opt, idx) => (
                     <div
                         key={idx}
-                        className="card flex align-center gap-md"
-                        style={{ padding: '24px', cursor: 'pointer', transition: '0.2s' }}
+                        className="card add-med-option-card"
                         onClick={opt.action}
                     >
-                        <div style={{ fontSize: '32px' }}>{opt.icon}</div>
+                        <div className="add-med-option-icon">{opt.icon}</div>
                         <div>
-                            <div className="text-bold" style={{ fontSize: '16px', marginBottom: '4px' }}>{opt.title}</div>
-                            <div style={{ fontSize: '12px', color: 'var(--color-text-secondary)' }}>{opt.desc}</div>
+                            <div className="add-med-option-title">{opt.title}</div>
+                            <div className="add-med-option-desc">{opt.desc}</div>
                         </div>
                     </div>
                 ))}

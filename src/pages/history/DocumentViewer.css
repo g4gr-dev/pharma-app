@@ -1,0 +1,82 @@
+.document-viewer-container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    background-color: var(--c_white);
+}
+
+.document-viewer-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 24px;
+    background-color: #333;
+    color: white;
+}
+
+.viewer-back-btn {
+    background: none;
+    padding: 0;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.viewer-back-icon {
+    font-size: 24px;
+}
+
+.viewer-header-title {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.viewer-download-icon {
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.viewer-content {
+    flex-grow: 1;
+    background-color: #f0f0f0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.document-preview-placeholder {
+    width: 90%;
+    height: 80%;
+    background-color: white;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ccc;
+}
+
+.viewer-footer {
+    padding: 16px;
+    background-color: white;
+}
+
+.metadata-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 12px;
+}
+
+.meta-title {
+    font-weight: 600;
+}
+
+.meta-subtitle {
+    font-size: 12px;
+    color: #666;
+}
+
+.meta-status {
+    font-size: 12px;
+    font-weight: bold;
+    color: var(--color-primary);
+}

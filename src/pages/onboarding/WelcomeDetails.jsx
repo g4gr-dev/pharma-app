@@ -1,40 +1,30 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import Button from '../../components/common/Button';
+import './WelcomeDetails.css';
 
 const WelcomeDetails = () => {
     const navigate = useNavigate();
 
     return (
-        <div className="welcome-screen h-full flex flex-col">
+        <div className="welcome-screen">
             {/* Header with Status Bar Placeholder (simulated) */}
-            <div className="status-bar flex justify-center align-center" style={{ height: '44px', fontSize: '14px', fontWeight: 'bold' }}>
+            <div className="status-bar">
                 9:41
             </div>
 
-            <div className="content flex-col align-center justify-center flex-grow" style={{ padding: '0 24px' }}>
+            <div className="welcome-content">
                 {/* Logo Placeholder */}
-                <div style={{
-                    width: '80px',
-                    height: '80px',
-                    backgroundColor: 'var(--color-primary-light)',
-                    borderRadius: '20px',
-                    marginBottom: '24px',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    fontSize: '32px',
-                    color: 'white'
-                }}>
+                <div className="logo-container">
                     +
                 </div>
 
-                <h1 style={{ fontSize: '24px', marginBottom: '8px', textAlign: 'center' }}>Bienvenido</h1>
-                <p style={{ color: 'var(--color-text-secondary)', textAlign: 'center', marginBottom: '48px' }}>
+                <h1 className="welcome-title">Bienvenido</h1>
+                <p className="welcome-subtitle">
                     Gestiona tu salud y la de tu familia
                 </p>
 
-                <div className="actions w-full flex flex-col gap-md">
+                <div className="welcome-actions">
                     <Button
                         variant="email"
                         fullWidth
@@ -64,12 +54,12 @@ const WelcomeDetails = () => {
                 </div>
             </div>
 
-            <div className="footer text-center" style={{ padding: '24px' }}>
-                <p style={{ fontSize: '14px', color: 'var(--color-text-secondary)' }}>
+            <div className="welcome-footer">
+                <p className="welcome-login-text">
                     ¿Ya tienes cuenta?{' '}
                     <span
                         onClick={() => navigate('/login')}
-                        style={{ color: 'var(--color-primary)', fontWeight: 'bold', cursor: 'pointer' }}
+                        className="login-link"
                     >
                         Iniciar sesión
                     </span>

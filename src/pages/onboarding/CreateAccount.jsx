@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Button from '../../components/common/Button';
 import Input from '../../components/common/Input';
+import './CreateAccount.css';
 
 const CreateAccount = () => {
     const navigate = useNavigate();
@@ -44,18 +45,18 @@ const CreateAccount = () => {
     };
 
     return (
-        <div className="flex flex-col h-full bg-white">
+        <div className="create-account-container">
             {/* Header */}
-            <div className="flex align-center justify-between" style={{ padding: '16px 24px' }}>
-                <button onClick={() => navigate(-1)} style={{ background: 'none', padding: 0 }}>
-                    <span style={{ fontSize: '24px' }}>←</span>
+            <div className="create-account-header">
+                <button onClick={() => navigate(-1)} className="create-account-back-btn">
+                    <span className="create-account-back-icon">←</span>
                 </button>
-                <span className="text-bold" style={{ fontSize: '18px' }}>Crear Cuenta</span>
-                <div style={{ width: '24px' }}></div> {/* Spacer */}
+                <span className="create-account-title">Crear Cuenta</span>
+                <div className="create-account-header-spacer"></div>
             </div>
 
             {/* Form */}
-            <form onSubmit={handleSubmit} className="flex-col flex-grow" style={{ padding: '0 24px 24px' }}>
+            <form onSubmit={handleSubmit} className="create-account-form">
                 <Input
                     label="Nombre Completo"
                     name="fullName"
@@ -95,22 +96,22 @@ const CreateAccount = () => {
                     error={errors.confirmPassword}
                 />
 
-                <div style={{ margin: '16px 0', display: 'flex', alignItems: 'center', gap: '12px' }}>
+                <div className="terms-container">
                     <input
                         type="checkbox"
                         id="terms"
                         name="terms"
                         checked={formData.terms}
                         onChange={handleChange}
-                        style={{ width: '20px', height: '20px', accentColor: 'var(--color-primary)' }}
+                        className="terms-checkbox"
                     />
-                    <label htmlFor="terms" style={{ fontSize: '14px', color: 'var(--color-text-secondary)' }}>
+                    <label htmlFor="terms" className="terms-label">
                         Acepto los Términos y Condiciones y Política de Privacidad
                     </label>
                 </div>
-                {errors.terms && <p style={{ color: 'var(--color-danger)', fontSize: '12px', marginTop: '-12px', marginBottom: '16px' }}>{errors.terms}</p>}
+                {errors.terms && <p className="terms-error">{errors.terms}</p>}
 
-                <div style={{ marginTop: 'auto' }}>
+                <div className="form-actions">
                     <Button type="submit" fullWidth>Crear Cuenta</Button>
                 </div>
             </form>

@@ -1,0 +1,140 @@
+.video-call-container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    background-color: black;
+    position: relative;
+    overflow: hidden;
+}
+
+.video-back-container {
+    position: absolute;
+    top: 16px;
+    left: 16px;
+    z-index: 20;
+}
+
+.video-back-btn {
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.remote-video-container {
+    width: 100%;
+    height: 100%;
+    background-color: #333;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.remote-video-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.8;
+}
+
+.local-video-pip {
+    position: absolute;
+    top: 24px;
+    right: 24px;
+    width: 100px;
+    height: 140px;
+    background-color: #000;
+    border-radius: 12px;
+    border: 2px solid white;
+    overflow: hidden;
+    z-index: 10;
+}
+
+.local-video-off-placeholder {
+    width: 100%;
+    height: 100%;
+    background-color: #222;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #666;
+    font-size: 24px;
+}
+
+.local-video-element {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transform: scaleX(-1);
+}
+
+.overlay-info-container {
+    position: absolute;
+    top: 40px;
+    left: 0;
+    right: 0;
+    text-align: center;
+    pointer-events: none;
+}
+
+.overlay-info-badge {
+    display: inline-block;
+    background: rgba(0, 0, 0, 0.5);
+    padding: 4px 12px;
+    border-radius: 20px;
+    color: white;
+}
+
+.doctor-name-overlay {
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.call-timer {
+    font-size: 12px;
+    opacity: 0.9;
+}
+
+.call-controls-container {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    padding: 32px 24px;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+    display: flex;
+    justify-content: center;
+    gap: 24px;
+}
+
+.control-btn {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.end-call-btn {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    background-color: var(--color-danger);
+    border: none;
+    color: white;
+    font-size: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}

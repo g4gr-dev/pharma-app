@@ -1,0 +1,229 @@
+.dashboard-container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    background-color: white;
+    position: relative;
+    padding-bottom: 70px;
+}
+
+.dashboard-header {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 24px;
+    background-color: white;
+    position: sticky;
+    z-index: 100;
+    top: 0;
+}
+
+.dashboard-user-info {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+}
+
+.user-avatar-frame {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #CCC;
+    overflow: hidden;
+}
+
+.user-avatar-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.user-greeting {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.user-family-selector {
+    font-size: 12px;
+    color: var(--color-text-secondary);
+    display: flex;
+    align-items: center;
+}
+
+.notification-bell-container {
+    position: relative;
+}
+
+.notification-icon {
+    font-size: 24px;
+}
+
+.notification-dot {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 8px;
+    height: 8px;
+    background-color: red;
+    border-radius: 50%;
+}
+
+.dashboard-content {
+    padding: 0 24px 24px;
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-lg);
+    overflow-y: auto;
+}
+
+.section-title {
+    font-weight: bold;
+    margin-bottom: 16px;
+}
+
+.quick-actions-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+}
+
+.quick-action-card {
+    padding: 16px;
+    cursor: pointer;
+    transition: 0.2s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.quick-action-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    margin-bottom: 8px;
+}
+
+.quick-action-label {
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+}
+
+.view-all-link {
+    font-size: 12px;
+    color: var(--color-primary);
+    font-weight: 600;
+}
+
+.dashboard-vitals-row {
+    display: flex;
+    gap: var(--spacing-md);
+    overflow-x: auto;
+    padding-bottom: 4px;
+    /* Space for scrollbar if shows */
+}
+
+.dashboard-vital-card {
+    min-width: 140px;
+    flex: 1;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.vital-card-top {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 8px;
+}
+
+.vital-title-sm {
+    font-size: 12px;
+    color: var(--color-text-secondary);
+}
+
+.vital-value-lg {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.vital-unit-sm {
+    font-size: 12px;
+    color: var(--color-text-secondary);
+}
+
+.vital-chart-line {
+    height: 20px;
+    margin-top: 8px;
+    border-bottom: 2px solid;
+    position: relative;
+    border-color: rgba(var(--vital-color-rgb), 0.4);
+    /* Ideally handled by inline style or var */
+}
+
+.vital-chart-fill {
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+}
+
+.reminders-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+}
+
+.reminder-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px;
+    flex-direction: row;
+}
+
+.reminder-info {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+}
+
+.reminder-icon {
+    padding: 8px;
+    background-color: #F5F5F5;
+    border-radius: 8px;
+}
+
+.reminder-text {
+    font-weight: 500;
+    font-size: 14px;
+}
+
+.reminder-time {
+    font-size: 12px;
+    color: var(--color-text-secondary);
+}
+
+.reminder-check {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    border: 2px solid #E0E0E0;
+    background-color: white;
+    cursor: pointer;
+}

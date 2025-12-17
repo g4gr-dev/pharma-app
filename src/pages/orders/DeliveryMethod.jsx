@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Button from '../../components/common/Button';
+import './DeliveryMethod.css';
 
 const DeliveryMethod = () => {
     const navigate = useNavigate();
@@ -21,29 +22,29 @@ const DeliveryMethod = () => {
     const currentAddress = savedAddresses.find(a => a.id === selectedAddress);
 
     return (
-        <div className="flex flex-col h-full bg-white">
+        <div className="delivery-method-container">
             {/* Header */}
-            <div className="flex align-center justify-between" style={{ padding: '16px 24px' }}>
-                <button onClick={() => navigate(-1)} style={{ background: 'none', padding: 0 }}>
-                    <span style={{ fontSize: '24px' }}>←</span>
+            <div className="delivery-header">
+                <button onClick={() => navigate(-1)} className="delivery-back-btn">
+                    <span className="delivery-back-icon">←</span>
                 </button>
-                <span className="text-bold" style={{ fontSize: '18px' }}>Método de Entrega</span>
-                <div style={{ width: '24px' }}></div>
+                <span className="delivery-title">Método de Entrega</span>
+                <div className="delivery-header-spacer"></div>
             </div>
 
-            <div className="scroll-content flex-grow" style={{ padding: '24px', overflowY: 'auto' }}>
+            <div className="delivery-content">
 
                 {/* Toggle */}
-                <div className="flex" style={{ backgroundColor: '#F5F5F5', padding: '4px', borderRadius: '12px', marginBottom: '32px' }}>
+                <div className="method-toggle">
                     <button
                         onClick={() => setMethod('delivery')}
-                        style={{ flex: 1, padding: '12px', borderRadius: '8px', border: 'none', backgroundColor: method === 'delivery' ? 'white' : 'transparent', boxShadow: method === 'delivery' ? '0 2px 4px rgba(0,0,0,0.1)' : 'none', fontWeight: '600' }}
+                        className={`toggle-btn ${method === 'delivery' ? 'active' : 'inactive'}`}
                     >
                         Delivery
                     </button>
                     <button
                         onClick={() => setMethod('pickup')}
-                        style={{ flex: 1, padding: '12px', borderRadius: '8px', border: 'none', backgroundColor: method === 'pickup' ? 'white' : 'transparent', boxShadow: method === 'pickup' ? '0 2px 4px rgba(0,0,0,0.1)' : 'none', fontWeight: '600' }}
+                        className={`toggle-btn ${method === 'pickup' ? 'active' : 'inactive'}`}
                     >
                         Retiro
                     </button>
@@ -51,98 +52,75 @@ const DeliveryMethod = () => {
 
                 {method === 'delivery' ? (
                     <section>
-                        <h3 className="text-bold" style={{ marginBottom: '16px' }}>Dirección de Envío</h3>
+                        <h3 className="section-title">Dirección de Envío</h3>
 
                         {!showAddressList ? (
-                            <div className="card" style={{ padding: '16px', marginBottom: '24px', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                            <div className="card address-card">
                                 <div>
-                                    <div style={{ fontWeight: '600' }}>{currentAddress.label}</div>
-                                    <div style={{ fontSize: '14px', color: '#666' }}>{currentAddress.address}</div>
+                                    <div className="address-label">{currentAddress.label}</div>
+                                    <div className="address-details">{currentAddress.address}</div>
                                 </div>
                                 <button
                                     onClick={() => setShowAddressList(true)}
-                                    style={{ color: 'var(--color-primary)', background: 'none', fontWeight: '600' }}
+                                    className="change-address-btn"
                                 >
                                     Cambiar
                                 </button>
                             </div>
                         ) : (
-                            <div className="card" style={{ padding: '16px', marginBottom: '24px' }}>
+                            <div className="card address-list-card">
                                 {savedAddresses.map(addr => (
                                     <div
                                         key={addr.id}
                                         onClick={() => { setSelectedAddress(addr.id); setShowAddressList(false); }}
-                                        style={{
-                                            padding: '12px',
-                                            borderBottom: '1px solid #eee',
-                                            cursor: 'pointer',
-                                            backgroundColor: selectedAddress === addr.id ? '#F0F8FF' : 'transparent',
-                                            display: 'flex',
-                                            justifyContent: 'space-between'
-                                        }}
+                                        className={`address-item ${selectedAddress === addr.id ? 'selected' : ''}`}
                                     >
                                         <div>
-                                            <div style={{ fontWeight: '600' }}>{addr.label}</div>
-                                            <div style={{ fontSize: '12px', color: '#666' }}>{addr.address}</div>
+                                            <div className="address-label">{addr.label}</div>
+                                            <div className="address-details">{addr.address}</div>
                                         </div>
                                         {selectedAddress === addr.id && <span>✔</span>}
                                     </div>
                                 ))}
-                                <button
-                                    style={{ marginTop: '12px', width: '100%', padding: '8px', border: '1px dashed #ccc', borderRadius: '8px', color: '#666' }}
-                                >
+                                <button className="add-address-btn">
                                     + Agregar nueva dirección
                                 </button>
                             </div>
                         )}
 
-                        <h3 className="text-bold" style={{ marginBottom: '16px' }}>Horario Preferido</h3>
-                        <div className="flex gap-sm" style={{ marginBottom: '16px' }}>
+                        <h3 className="section-title">Horario Preferido</h3>
+                        <div className="schedule-buttons">
                             <button
                                 onClick={() => setScheduleType('asap')}
-                                style={{
-                                    flex: 1,
-                                    padding: '12px',
-                                    border: scheduleType === 'asap' ? '2px solid var(--color-primary)' : '1px solid #ddd',
-                                    borderRadius: '8px',
-                                    backgroundColor: scheduleType === 'asap' ? '#E0F7FA' : 'white',
-                                    fontWeight: '600'
-                                }}
+                                className={`schedule-btn ${scheduleType === 'asap' ? 'selected' : 'unselected'}`}
                             >
                                 Lo antes posible
                             </button>
                             <button
                                 onClick={() => setScheduleType('scheduled')}
-                                style={{
-                                    flex: 1,
-                                    padding: '12px',
-                                    border: scheduleType === 'scheduled' ? '2px solid var(--color-primary)' : '1px solid #ddd',
-                                    borderRadius: '8px',
-                                    backgroundColor: scheduleType === 'scheduled' ? '#E0F7FA' : 'white',
-                                    fontWeight: '600'
-                                }}
+                                className={`schedule-btn ${scheduleType === 'scheduled' ? 'selected' : 'unselected'}`}
                             >
                                 Programar
                             </button>
                         </div>
 
                         {scheduleType === 'scheduled' && (
-                            <div className="card" style={{ padding: '16px', display: 'flex', gap: '16px' }}>
-                                <div style={{ flex: 1 }}>
-                                    <label style={{ fontSize: '12px', fontWeight: 'bold' }}>Fecha</label>
+                            <div className="card schedule-inputs">
+                                <div className="input-group">
+                                    <label className="input-label">Fecha</label>
                                     <input
                                         type="date"
                                         value={date}
                                         onChange={(e) => setDate(e.target.value)}
-                                        style={{ width: '100%', padding: '8px', border: '1px solid #ddd', borderRadius: '4px', marginTop: '4px' }}
+                                        className="schedule-input"
                                     />
                                 </div>
-                                <div style={{ flex: 1 }}>
-                                    <label style={{ fontSize: '12px', fontWeight: 'bold' }}>Hora</label>
+                                <div className="input-group">
+                                    <label className="input-label">Hora</label>
                                     <select
                                         value={time}
                                         onChange={(e) => setTime(e.target.value)}
-                                        style={{ width: '100%', padding: '8px', border: '1px solid #ddd', borderRadius: '4px', marginTop: '4px' }}
+                                        className="schedule-input"
                                     >
                                         <option value="">Elegir...</option>
                                         <option value="09:00 - 11:00">09:00 - 11:00</option>
@@ -157,19 +135,19 @@ const DeliveryMethod = () => {
                     </section>
                 ) : (
                     <section>
-                        <h3 className="text-bold" style={{ marginBottom: '16px' }}>Punto de Retiro</h3>
-                        <div className="card" style={{ padding: '16px' }}>
-                            <div style={{ fontWeight: '600' }}>Farmacia Del Sol</div>
-                            <div style={{ fontSize: '14px', color: '#666' }}>Calle Falsa 123</div>
-                            <div style={{ fontSize: '12px', color: 'var(--color-success)', marginTop: '8px' }}>Disponible para retiro inmediato</div>
+                        <h3 className="section-title">Punto de Retiro</h3>
+                        <div className="card pickup-details-card">
+                            <div style={{ fontWeight: '600' }}>Farmacia Central Oeste Moron</div>
+                            <div style={{ fontSize: '14px', color: '#666' }}>Av. Rivadaria 18.000</div>
+                            <div className="pickup-status">Disponible para retiro inmediato / PickUp</div>
                         </div>
                     </section>
                 )}
 
             </div>
 
-            <div style={{ padding: '24px', borderTop: '1px solid #f0f0f0' }}>
-                <div className="flex justify-between text-bold" style={{ marginBottom: '16px', fontSize: '18px' }}>
+            <div className="delivery-footer">
+                <div className="total-row">
                     <span>Total</span>
                     <span>$3100</span>
                 </div>

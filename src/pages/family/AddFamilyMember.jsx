@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Button from '../../components/common/Button';
 import Input from '../../components/common/Input';
+import './AddFamilyMember.css';
 
 const AddFamilyMember = () => {
     const navigate = useNavigate();
@@ -16,26 +17,26 @@ const AddFamilyMember = () => {
     };
 
     return (
-        <div className="flex flex-col h-full bg-white">
+        <div className="add-family-container">
             {/* Header */}
-            <div className="flex align-center justify-between" style={{ padding: '16px 24px' }}>
-                <button onClick={() => navigate(-1)} style={{ background: 'none', padding: 0 }}>
-                    <span style={{ fontSize: '24px' }}>←</span>
+            <div className="add-family-header">
+                <button onClick={() => navigate(-1)} className="add-family-back-btn">
+                    <span className="add-family-back-icon">←</span>
                 </button>
-                <span className="text-bold" style={{ fontSize: '18px' }}>Nuevo Integrante</span>
-                <div style={{ width: '24px' }}></div>
+                <span className="add-family-title">Nuevo Integrante</span>
+                <div className="add-family-spacer"></div>
             </div>
 
-            <div className="scroll-content flex-grow" style={{ padding: '24px', overflowY: 'auto' }}>
+            <div className="add-family-content">
 
-                <div style={{ textAlign: 'center', marginBottom: '32px' }}>
-                    <div style={{ width: '100px', height: '100px', borderRadius: '50%', backgroundColor: '#F5F5F5', margin: '0 auto 16px', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '32px', color: '#ccc' }}>
+                <div className="photo-upload-container">
+                    <div className="photo-placeholder">
                         📷
                     </div>
-                    <div style={{ color: 'var(--color-primary)', fontSize: '14px', fontWeight: '500' }}>Subir Foto</div>
+                    <div className="upload-text">Subir Foto</div>
                 </div>
 
-                <section className="flex flex-col gap-md">
+                <section className="add-family-form">
                     <Input
                         label="Nombre Completo"
                         name="name"
@@ -45,12 +46,12 @@ const AddFamilyMember = () => {
                     />
 
                     <div>
-                        <label style={{ display: 'block', marginBottom: '8px', fontSize: '14px', fontWeight: '600' }}>Parentesco</label>
+                        <label className="relation-label">Parentesco</label>
                         <select
                             name="relation"
                             value={form.relation}
                             onChange={handleChange}
-                            style={{ width: '100%', padding: '12px', borderRadius: '8px', border: '1px solid #E0E0E0' }}
+                            className="relation-select"
                         >
                             <option value="">Seleccionar...</option>
                             <option value="Hijo/a">Hijo/a</option>
@@ -68,15 +69,15 @@ const AddFamilyMember = () => {
                         onChange={handleChange}
                     />
 
-                    <div className="flex align-center gap-sm" style={{ marginTop: '8px' }}>
-                        <input type="checkbox" style={{ width: '18px', height: '18px' }} />
-                        <span style={{ fontSize: '14px' }}>Vive en el mismo domicilio</span>
+                    <div className="checkbox-row">
+                        <input type="checkbox" className="address-checkbox" />
+                        <span className="checkbox-text">Vive en el mismo domicilio</span>
                     </div>
                 </section>
 
             </div>
 
-            <div style={{ padding: '24px' }}>
+            <div className="add-family-footer">
                 <Button fullWidth onClick={() => navigate('/family')}>Guardar Familiar</Button>
             </div>
         </div>

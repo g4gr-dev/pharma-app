@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Button from '../../components/common/Button';
 import Input from '../../components/common/Input';
+import './ProductCatalog.css';
 
 const ProductCatalog = () => {
     const navigate = useNavigate();
@@ -28,40 +29,32 @@ const ProductCatalog = () => {
     const filteredProducts = category === 'all' ? products : products.filter(p => p.category === category);
 
     return (
-        <div className="flex flex-col h-full bg-white relative">
+        <div className="product-catalog-container">
             {/* Header */}
-            <div className="flex align-center justify-between" style={{ padding: '16px 24px', borderBottom: '1px solid #f0f0f0' }}>
-                <button onClick={() => navigate('/dashboard')} style={{ background: 'none', padding: 0 }}>
-                    <span style={{ fontSize: '24px' }}>←</span>
+            <div className="catalog-header">
+                <button onClick={() => navigate('/dashboard')} className="catalog-back-btn">
+                    <span className="catalog-header-icon">←</span>
                 </button>
-                <span className="text-bold" style={{ fontSize: '18px' }}>Farmacia Online</span>
-                <button onClick={() => navigate('/orders/review')} style={{ background: 'none', padding: 0 }}>
-                    <span style={{ fontSize: '24px' }}>🛒</span>
+                <span className="catalog-title">Farmacia Online</span>
+                <button onClick={() => navigate('/orders/review')} className="catalog-cart-btn">
+                    <span className="catalog-header-icon">🛒</span>
                 </button>
             </div>
 
-            <div className="scroll-content flex-grow" style={{ padding: '24px', overflowY: 'auto' }}>
+            <div className="catalog-content">
 
                 {/* Search */}
-                <div style={{ marginBottom: '24px' }}>
+                <div className="catalog-search-container">
                     <Input placeholder="Buscar medicamento, marca..." />
                 </div>
 
                 {/* Categories */}
-                <div className="flex gap-sm" style={{ marginBottom: '24px', overflowX: 'auto', paddingBottom: '4px' }}>
+                <div className="categories-scroll">
                     {categories.map(cat => (
                         <button
                             key={cat.id}
                             onClick={() => setCategory(cat.id)}
-                            style={{
-                                padding: '8px 16px',
-                                borderRadius: '20px',
-                                border: '1px solid var(--color-primary)',
-                                backgroundColor: category === cat.id ? 'var(--color-primary)' : 'white',
-                                color: category === cat.id ? 'white' : 'var(--color-primary)',
-                                fontSize: '12px',
-                                whiteSpace: 'nowrap'
-                            }}
+                            className={`category-pill ${category === cat.id ? 'active' : 'inactive'}`}
                         >
                             {cat.label}
                         </button>
@@ -69,20 +62,20 @@ const ProductCatalog = () => {
                 </div>
 
                 {/* Product Grid */}
-                <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px' }}>
+                <div className="product-grid">
                     {filteredProducts.map(prod => (
-                        <div key={prod.id} className="card" style={{ padding: '16px', display: 'flex', flexDirection: 'column', gap: '8px' }}>
-                            <div style={{ fontSize: '40px', textAlign: 'center', backgroundColor: '#f9f9f9', borderRadius: '8px', padding: '16px' }}>
+                        <div key={prod.id} className="card product-card">
+                            <div className="product-image-container">
                                 {prod.image}
                             </div>
                             <div>
-                                <div style={{ fontSize: '12px', color: '#666' }}>{prod.brand}</div>
-                                <div style={{ fontWeight: '600', fontSize: '14px', marginBottom: '4px' }}>{prod.name}</div>
-                                <div style={{ fontWeight: 'bold', color: 'var(--color-primary)' }}>${prod.price}</div>
+                                <div className="product-info-brand">{prod.brand}</div>
+                                <div className="product-info-name">{prod.name}</div>
+                                <div className="product-info-price">${prod.price}</div>
                             </div>
                             <Button
                                 variant="secondary"
-                                style={{ fontSize: '12px', padding: '8px', marginTop: 'auto' }}
+                                className="add-product-btn"
                                 onClick={() => navigate('/orders/review')} // Short circuit for demo
                             >
                                 Agregar

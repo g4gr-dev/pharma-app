@@ -1,0 +1,118 @@
+.product-catalog-container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    background-color: var(--c_white);
+    position: relative;
+}
+
+.catalog-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 24px;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.catalog-back-btn {
+    background: none;
+    padding: 0;
+    border: none;
+    cursor: pointer;
+}
+
+.catalog-header-icon {
+    font-size: 24px;
+}
+
+.catalog-title {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.catalog-cart-btn {
+    background: none;
+    padding: 0;
+    border: none;
+    cursor: pointer;
+}
+
+.catalog-content {
+    padding: 24px;
+    overflow-y: auto;
+    flex-grow: 1;
+}
+
+.catalog-search-container {
+    margin-bottom: 24px;
+}
+
+.categories-scroll {
+    display: flex;
+    gap: var(--spacing-sm);
+    margin-bottom: 24px;
+    overflow-x: auto;
+    padding-bottom: 4px;
+}
+
+.category-pill {
+    padding: 8px 16px;
+    border-radius: 20px;
+    border: 1px solid var(--color-primary);
+    font-size: 12px;
+    white-space: nowrap;
+    cursor: pointer;
+}
+
+.category-pill.active {
+    background-color: var(--color-primary);
+    color: white;
+}
+
+.category-pill.inactive {
+    background-color: white;
+    color: var(--color-primary);
+}
+
+.product-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+}
+
+.product-card {
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.product-image-container {
+    font-size: 40px;
+    text-align: center;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    padding: 16px;
+}
+
+.product-info-brand {
+    font-size: 12px;
+    color: #666;
+}
+
+.product-info-name {
+    font-weight: 600;
+    font-size: 14px;
+    margin-bottom: 4px;
+}
+
+.product-info-price {
+    font-weight: bold;
+    color: var(--color-primary);
+}
+
+.add-product-btn {
+    font-size: 12px !important;
+    padding: 8px !important;
+    margin-top: auto;
+}

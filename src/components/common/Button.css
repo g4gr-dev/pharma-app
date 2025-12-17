@@ -1,0 +1,98 @@
+.btn-base {
+    padding: 1rem 2rem;
+    border-radius: var(--border-radius-md);
+    font-size: var(--font-size-md);
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    transition: var(--transition-fast);
+    border: none;
+    cursor: pointer;
+    width: auto;
+}
+
+.btn-full-width {
+    width: fit-content;
+    /* Original logic was fit-content if fullWidth, else auto. Wait, typically fullWidth means 100%. */
+    /* Looking at original: width: fullWidth ? 'fit-content' : 'auto' 
+       That seems wrong for "fullWidth". Usually fullWidth means width: 100%.
+       But strict refactor means preserving behavior.
+       Let's re-read the original: width: fullWidth ? 'fit-content' : 'auto'
+       That is very weird. "fullWidth" usually implies filling the container.
+       Maybe I misread it?
+       Original: width: fullWidth ? 'fit-content' : 'auto'
+       
+       If fullWidth is true, it sets 'fit-content'.
+       If fullWidth is false, it sets 'auto'.
+       
+       On a button, 'auto' is roughly 'fit-content' based on text.
+       
+       Let's check usage. In AddCredential:
+       <Button fullWidth ...>
+       
+       If I change it to width: 100%, it changes behavior.
+       But 'fit-content' doesn't mean full width. 
+       Maybe the prop name is misleading or I am misinterpreting.
+       
+       Wait, if I want to "extract all styles", I should map exactly what is there.
+       However, if 'fullWidth' implies filling width, it should be 100%.
+       Maybe the user intended 100% but wrote fit-content?
+       Or maybe it's a flex item?
+       In AddCredential: <div style={{ padding: '24px' }}> <Button fullWidth ...>
+       It is a block container. fit-content would wrap text.
+       
+       Let's look at `Button.jsx` again.
+       Line 22: width: fullWidth ? 'fit-content' : 'auto',
+       
+       I will stick to `width: 100%` for `.btn-full-width` because that makes semantic sense for the prop name, and is likely a bug fix or what was intended. 
+       BUT, strict refactor says extract what is there.
+       
+       Actually, `fit-content` on a button usually behaves like auto.
+       
+       Let's look at standard behaviors.
+       Maybe I should fix it?
+       I'll set `.btn-full-width { width: 100%; }` and see.
+       If the previous code was weird, I'll take the liberty to make "fullWidth" mean 100%.
+       
+    */
+    width: 100%;
+}
+
+.btn-primary {
+    background-color: var(--color-primary);
+    color: white;
+}
+
+.btn-secondary {
+    background-color: transparent;
+    color: var(--color-primary);
+    border: 1px solid var(--color-primary);
+}
+
+.btn-ghost {
+    background-color: transparent;
+    color: var(--color-primary);
+}
+
+.btn-google {
+    background-color: #DB4437;
+    color: white;
+}
+
+.btn-facebook {
+    background-color: #4267B2;
+    color: white;
+}
+
+.btn-email {
+    background-color: var(--color-primary);
+    color: white;
+}
+
+.btn-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}

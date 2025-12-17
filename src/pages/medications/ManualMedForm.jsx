@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Button from '../../components/common/Button';
 import Input from '../../components/common/Input';
+import './ManualMedForm.css';
 
 const ManualMedForm = () => {
     const navigate = useNavigate();
@@ -17,20 +18,20 @@ const ManualMedForm = () => {
     };
 
     return (
-        <div className="flex flex-col h-full bg-white">
+        <div className="manual-med-container">
             {/* Header */}
-            <div className="flex align-center justify-between" style={{ padding: '16px 24px', borderBottom: '1px solid #f0f0f0' }}>
-                <button onClick={() => navigate(-1)} style={{ background: 'none', padding: 0 }}>
-                    <span style={{ fontSize: '24px' }}>←</span>
+            <div className="manual-med-header">
+                <button onClick={() => navigate(-1)} className="med-header-back-btn">
+                    <span className="med-header-back-icon">←</span>
                 </button>
                 <span className="text-bold" style={{ fontSize: '18px' }}>Nuevo Medicamento</span>
-                <div style={{ width: '24px' }}></div>
+                <div className="med-header-spacer"></div>
             </div>
 
-            <div className="scroll-content flex-grow" style={{ padding: '24px', overflowY: 'auto' }}>
+            <div className="manual-med-content">
 
-                <section style={{ marginBottom: '24px' }}>
-                    <h3 className="text-bold" style={{ marginBottom: '16px', fontSize: '14px', color: 'var(--color-primary)' }}>Información Básica</h3>
+                <section className="med-section">
+                    <h3 className="med-section-title">Información Básica</h3>
                     <Input
                         label="Nombre del Medicamento"
                         name="name"
@@ -50,8 +51,8 @@ const ManualMedForm = () => {
                             />
                         </div>
                         <div style={{ flex: 1 }}>
-                            <label style={{ display: 'block', marginBottom: '8px', fontSize: '14px', fontWeight: '600' }}>Unidad</label>
-                            <select style={{ width: '100%', padding: '12px', borderRadius: '8px', border: '1px solid #E0E0E0' }}>
+                            <label className="med-unit-label">Unidad</label>
+                            <select className="med-select">
                                 <option>mg</option>
                                 <option>ml</option>
                                 <option>gr</option>
@@ -60,37 +61,38 @@ const ManualMedForm = () => {
                     </div>
                 </section>
 
-                <section style={{ marginBottom: '24px' }}>
-                    <h3 className="text-bold" style={{ marginBottom: '16px', fontSize: '14px', color: 'var(--color-primary)' }}>Horarios</h3>
-                    <label style={{ display: 'block', marginBottom: '8px', fontSize: '14px', fontWeight: '600' }}>Frecuencia</label>
+                <section className="med-section">
+                    <h3 className="med-section-title">Horarios</h3>
+                    <label className="freq-label">Frecuencia</label>
                     <select
                         name="frequency"
                         value={form.frequency}
                         onChange={handleChange}
-                        style={{ width: '100%', padding: '12px', borderRadius: '8px', border: '1px solid #E0E0E0', marginBottom: '16px' }}
+                        className="med-select"
+                        style={{ marginBottom: '16px' }}
                     >
                         <option value="8">Cada 8 horas</option>
                         <option value="12">Cada 12 horas</option>
                         <option value="24">Una vez al día</option>
                     </select>
 
-                    <div className="card" style={{ padding: '16px', backgroundColor: '#F8F9FA' }}>
-                        <label style={{ display: 'block', marginBottom: '8px', fontSize: '12px', color: '#666' }}>Próxima toma</label>
-                        <input type="time" style={{ padding: '8px', borderRadius: '4px', border: '1px solid #ddd' }} defaultValue="14:00" />
+                    <div className="card next-time-card">
+                        <label className="next-time-label">Próxima toma</label>
+                        <input type="time" className="next-time-input" defaultValue="14:00" />
                     </div>
                 </section>
 
                 <section>
-                    <h3 className="text-bold" style={{ marginBottom: '16px', fontSize: '14px', color: 'var(--color-primary)' }}>Recordatorios</h3>
-                    <div className="flex justify-between align-center">
+                    <h3 className="med-section-title">Recordatorios</h3>
+                    <div className="reminder-row">
                         <span>Activar recordatorios</span>
-                        <input type="checkbox" defaultChecked style={{ width: '20px', height: '20px', accentColor: 'var(--color-primary)' }} />
+                        <input type="checkbox" defaultChecked className="reminder-checkbox" />
                     </div>
                 </section>
 
             </div>
 
-            <div style={{ padding: '24px', borderTop: '1px solid #f0f0f0' }}>
+            <div className="manual-med-footer">
                 <Button fullWidth onClick={() => navigate('/medications')}>Guardar Medicamento</Button>
             </div>
         </div>

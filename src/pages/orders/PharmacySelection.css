@@ -1,0 +1,91 @@
+.pharmacy-selection-container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    background-color: var(--c_white);
+}
+
+.pharmacy-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 24px;
+}
+
+.pharmacy-back-btn {
+    background: none;
+    padding: 0;
+    border: none;
+    cursor: pointer;
+}
+
+.pharmacy-back-icon {
+    font-size: 24px;
+}
+
+.pharmacy-title {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.pharmacy-header-spacer {
+    width: 24px;
+}
+
+.pharmacy-content {
+    padding: 24px;
+    overflow-y: auto;
+    flex-grow: 1;
+}
+
+.location-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+}
+
+.location-text {
+    font-weight: bold;
+}
+
+.change-location-btn {
+    color: var(--color-primary);
+    font-size: 14px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+}
+
+.pharmacy-card {
+    padding: 16px;
+    margin-bottom: 16px;
+}
+
+.pharmacy-info-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 12px;
+}
+
+.pharmacy-name {
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.pharmacy-details {
+    font-size: 12px;
+    color: #666;
+}
+
+.pharmacy-price {
+    font-weight: bold;
+    color: var(--color-primary);
+}
+
+.select-pharmacy-btn {
+    border: 1px solid var(--color-primary) !important;
+    color: var(--color-primary) !important;
+}

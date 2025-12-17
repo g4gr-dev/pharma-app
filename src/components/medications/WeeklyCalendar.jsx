@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import './WeeklyCalendar.css';
 
 const WeeklyCalendar = () => {
     const navigate = useNavigate();
@@ -22,22 +23,22 @@ const WeeklyCalendar = () => {
     };
 
     const renderMedCard = (med) => (
-        <div key={med.id} className="card" style={{ padding: '12px', marginBottom: '12px', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-            <div className="flex align-center gap-sm">
-                <div style={{ fontSize: '12px', fontWeight: 'bold', backgroundColor: '#F5F5F5', padding: '4px 8px', borderRadius: '4px' }}>
+        <div key={med.id} className="card med-card">
+            <div className="med-info">
+                <div className="med-time">
                     {med.time}
                 </div>
                 <div>
-                    <div style={{ fontWeight: '600' }}>{med.name}</div>
-                    <div style={{ fontSize: '12px', color: '#666' }}>{med.dose}</div>
+                    <div className="med-name">{med.name}</div>
+                    <div className="med-dose">{med.dose}</div>
                 </div>
             </div>
 
-            <div className="flex flex-col align-end gap-sm">
-                <input type="checkbox" style={{ width: '20px', height: '20px' }} />
+            <div className="med-actions">
+                <input type="checkbox" className="med-checkbox" />
                 <button
                     onClick={() => navigate('/orders/review')}
-                    style={{ fontSize: '10px', color: 'var(--color-primary)', background: 'none', border: '1px solid var(--color-primary)', borderRadius: '12px', padding: '2px 8px' }}
+                    className="order-more-btn"
                 >
                     Pedir más
                 </button>
@@ -46,51 +47,40 @@ const WeeklyCalendar = () => {
     );
 
     return (
-        <div>
+        <div className="weekly-calendar-container">
             {/* Day Picker */}
-            <div className="flex justify-between" style={{ marginBottom: '24px', backgroundColor: 'white', padding: '8px 0' }}>
+            <div className="day-picker">
                 {days.map(day => (
                     <button
                         key={day}
                         onClick={() => setSelectedDay(day)}
-                        style={{
-                            display: 'flex',
-                            flexDirection: 'column',
-                            alignItems: 'center',
-                            background: selectedDay === day ? 'var(--color-primary)' : 'transparent',
-                            color: selectedDay === day ? 'white' : '#666',
-                            border: 'none',
-                            borderRadius: '20px',
-                            padding: '8px 12px',
-                            minWidth: '40px',
-                            transition: '0.2s'
-                        }}
+                        className={`day-button ${selectedDay === day ? 'active' : ''}`}
                     >
-                        <span style={{ fontSize: '12px', fontWeight: 'bold' }}>{day}</span>
-                        <span style={{ fontSize: '10px' }}>12</span>
+                        <span className="day-name">{day}</span>
+                        <span className="day-number">12</span>
                     </button>
                 ))}
             </div>
 
             {/* Time Slots */}
-            <div className="flex flex-col gap-md">
+            <div className="time-slots-container">
 
                 {/* Morning */}
                 <div>
-                    <h3 style={{ fontSize: '14px', color: '#888', marginBottom: '8px', textTransform: 'uppercase', letterSpacing: '1px' }}>Mañana</h3>
+                    <h3 className="time-slot-title">Mañana</h3>
                     {schedule.morning.map(renderMedCard)}
                 </div>
 
                 {/* Afternoon */}
                 <div>
-                    <h3 style={{ fontSize: '14px', color: '#888', marginBottom: '8px', textTransform: 'uppercase', letterSpacing: '1px' }}>Tarde</h3>
+                    <h3 className="time-slot-title">Tarde</h3>
                     {schedule.afternoon.map(renderMedCard)}
-                    {schedule.afternoon.length === 0 && <div style={{ fontSize: '12px', color: '#ccc', fontStyle: 'italic' }}>Nada programado</div>}
+                    {schedule.afternoon.length === 0 && <div className="empty-slot">Nada programado</div>}
                 </div>
 
                 {/* Night */}
                 <div>
-                    <h3 style={{ fontSize: '14px', color: '#888', marginBottom: '8px', textTransform: 'uppercase', letterSpacing: '1px' }}>Noche</h3>
+                    <h3 className="time-slot-title">Noche</h3>
                     {schedule.night.map(renderMedCard)}
                 </div>
 

@@ -1,6 +1,7 @@
 import React from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import Button from '../../components/common/Button';
+import './FamilyMemberDetail.css';
 
 const FamilyMemberDetail = () => {
     const navigate = useNavigate();
@@ -16,61 +17,61 @@ const FamilyMemberDetail = () => {
     };
 
     return (
-        <div className="flex flex-col h-full bg-white">
+        <div className="family-member-detail-container">
             {/* Collapsible Header */}
-            <div style={{ backgroundColor: 'var(--color-primary)', color: 'white', padding: '24px' }}>
-                <div className="flex align-center justify-between" style={{ marginBottom: '24px' }}>
-                    <button onClick={() => navigate(-1)} style={{ background: 'none', border: 'none', color: 'white', fontSize: '24px', padding: 0 }}>←</button>
-                    <span style={{ fontSize: '18px', fontWeight: '500' }}>Perfil Familiar</span>
-                    <span style={{ fontSize: '20px' }}>⚙️</span>
+            <div className="family-member-header">
+                <div className="family-header-top">
+                    <button onClick={() => navigate(-1)} className="header-back-btn">←</button>
+                    <span className="header-title-text">Perfil Familiar</span>
+                    <span className="header-settings-icon">⚙️</span>
                 </div>
 
-                <div className="flex align-center gap-md">
-                    <div style={{ width: '60px', height: '60px', borderRadius: '50%', backgroundColor: 'white', color: 'var(--color-primary)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '24px' }}>
+                <div className="family-profile-info">
+                    <div className="profile-avatar-circle">
                         TM
                     </div>
                     <div>
-                        <div style={{ fontSize: '20px', fontWeight: 'bold' }}>{member.name}</div>
-                        <div style={{ opacity: 0.9, fontSize: '14px' }}>{member.relation} • {member.age} años</div>
+                        <div className="profile-name">{member.name}</div>
+                        <div className="profile-relation">{member.relation} • {member.age} años</div>
                     </div>
                 </div>
             </div>
 
-            <div className="scroll-content flex-grow" style={{ padding: '24px', overflowY: 'auto' }}>
+            <div className="family-detail-content">
 
-                <div className="flex gap-md" style={{ marginBottom: '24px' }}>
-                    <div className="card flex-1 text-center" style={{ padding: '12px' }}>
-                        <div style={{ fontSize: '12px', color: '#666' }}>Sangre</div>
-                        <div style={{ fontWeight: 'bold' }}>{member.bloodType}</div>
+                <div className="stats-row">
+                    <div className="card stat-card">
+                        <div className="stat-label">Sangre</div>
+                        <div className="stat-value">{member.bloodType}</div>
                     </div>
-                    <div className="card flex-1 text-center" style={{ padding: '12px' }}>
-                        <div style={{ fontSize: '12px', color: '#666' }}>Peso</div>
-                        <div style={{ fontWeight: 'bold' }}>70kg</div>
+                    <div className="card stat-card">
+                        <div className="stat-label">Peso</div>
+                        <div className="stat-value">70kg</div>
                     </div>
-                    <div className="card flex-1 text-center" style={{ padding: '12px' }}>
-                        <div style={{ fontSize: '12px', color: '#666' }}>Altura</div>
-                        <div style={{ fontWeight: 'bold' }}>1.65m</div>
+                    <div className="card stat-card">
+                        <div className="stat-label">Altura</div>
+                        <div className="stat-value">1.65m</div>
                     </div>
                 </div>
 
-                <section style={{ marginBottom: '24px' }}>
-                    <h3 className="text-bold" style={{ marginBottom: '12px' }}>Acciones Rápidas</h3>
-                    <div className="flex flex-col gap-sm">
-                        <Button variant="secondary" fullWidth style={{ justifyContent: 'flex-start', textAlign: 'left' }}>
+                <section className="actions-section">
+                    <h3 className="section-title">Acciones Rápidas</h3>
+                    <div className="actions-list">
+                        <Button variant="secondary" fullWidth className="action-btn-left">
                             📅 Ver Historial Médico
                         </Button>
-                        <Button variant="secondary" fullWidth style={{ justifyContent: 'flex-start', textAlign: 'left' }}>
+                        <Button variant="secondary" fullWidth className="action-btn-left">
                             💊 Medicamentos Activos
                         </Button>
-                        <Button variant="secondary" fullWidth style={{ justifyContent: 'flex-start', textAlign: 'left' }}>
+                        <Button variant="secondary" fullWidth className="action-btn-left">
                             📹 Solicitar Consulta para ella
                         </Button>
                     </div>
                 </section>
 
                 <section>
-                    <h3 className="text-bold" style={{ marginBottom: '12px' }}>Notas</h3>
-                    <div className="card" style={{ padding: '16px', color: '#555', fontSize: '14px' }}>
+                    <h3 className="section-title">Notas</h3>
+                    <div className="card notes-card">
                         Alergia a la {member.allergies}. Recordar llevar estudios de cardiología a la próxima visita.
                     </div>
                 </section>

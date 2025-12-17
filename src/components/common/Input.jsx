@@ -1,4 +1,5 @@
 import React from 'react';
+import './Input.css';
 
 const Input = ({
     label,
@@ -11,20 +12,14 @@ const Input = ({
     required = false
 }) => {
     return (
-        <div className="input-field" style={{ marginBottom: '16px' }}>
+        <div className="input-field input-container">
             {label && (
                 <label
                     htmlFor={name}
-                    style={{
-                        display: 'block',
-                        marginBottom: '8px',
-                        fontSize: 'var(--font-size-sm)',
-                        fontWeight: '600',
-                        color: 'var(--color-text-secondary)'
-                    }}
+                    className="input-label"
                 >
                     {label}
-                    {required && <span style={{ color: 'var(--color-danger)' }}> *</span>}
+                    {required && <span className="required-mark"> *</span>}
                 </label>
             )}
 
@@ -35,27 +30,11 @@ const Input = ({
                 placeholder={placeholder}
                 value={value}
                 onChange={onChange}
-                style={{
-                    width: '100%',
-                    padding: '12px',
-                    borderRadius: 'var(--border-radius-sm)',
-                    border: error ? '1px solid var(--color-danger)' : '1px solid #E0E0E0',
-                    backgroundColor: 'var(--color-bg-input)',
-                    fontSize: 'var(--font-size-md)',
-                    color: 'var(--color-text-main)',
-                    transition: 'var(--transition-fast)'
-                }}
-                onFocus={(e) => e.target.style.borderColor = error ? 'var(--color-danger)' : 'var(--color-primary)'}
-                onBlur={(e) => e.target.style.borderColor = error ? 'var(--color-danger)' : '#E0E0E0'}
+                className={`input-element ${error ? 'has-error' : ''}`}
             />
 
             {error && (
-                <span style={{
-                    display: 'block',
-                    marginTop: '4px',
-                    fontSize: 'var(--font-size-xs)',
-                    color: 'var(--color-danger)'
-                }}>
+                <span className="input-error">
                     {error}
                 </span>
             )}

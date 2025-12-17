@@ -1,40 +1,57 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Button from '../../components/common/Button';
+import './RequestConsult.css';
 
 const RequestConsult = () => {
     const navigate = useNavigate();
     const [urgency, setUrgency] = useState('normal');
     const [type, setType] = useState('general');
 
+    const urgencyStyle = urgency === 'urgent' ?
+        { border: '2px solid var(--color-danger)', backgroundColor: '#E0F7FA', color: 'var(--color-danger)' } :
+        { border: '1px solid #E0E0E0', backgroundColor: 'white', color: '#666' };
+
     return (
-        <div className="flex flex-col h-full bg-white">
+        <div className="request-consult-container">
             {/* Header */}
-            <div className="flex align-center justify-between" style={{ padding: '16px 24px', borderBottom: '1px solid #f0f0f0' }}>
-                <button onClick={() => navigate(-1)} style={{ background: 'none', padding: 0 }}>
-                    <span style={{ fontSize: '24px' }}>←</span>
+            <div className="request-consult-header">
+                <button onClick={() => navigate(-1)} className="back-btn">
+                    <span className="back-arrow-icon">←</span>
                 </button>
-                <span className="text-bold" style={{ fontSize: '18px', marginInlineStart: '1rem' }}>Solicitar Consulta</span>
-                <div style={{ width: '24px' }}></div>
+                <span className="header-title-req">Solicitar Consulta</span>
+                <div className="header-spacer-req"></div>
             </div>
 
-            <div className="scroll-content flex-grow" style={{ padding: '24px', overflowY: 'auto' }}>
+            <div className="request-content">
 
                 {/* Type */}
-                <section style={{ marginBottom: '24px' }}>
-                    <h3 className="text-bold" style={{ marginBottom: '16px' }}>Tipo de Consulta</h3>
-                    <div className="flex gap-md" style={{ marginBottom: '12px' }}>
-                        <label className="flex align-center gap-sm" style={{ padding: '12px', border: type === 'general' ? '2px solid var(--color-primary)' : '1px solid #E0E0E0', borderRadius: '8px', flex: 1, backgroundColor: type === 'general' ? '#E0F7FA' : 'white' }}>
+                <section className="request-section">
+                    <h3 className="request-section-title">Tipo de Consulta</h3>
+                    <div className="type-options-row">
+                        <label
+                            className="type-radio-label"
+                            style={{
+                                border: type === 'general' ? '2px solid var(--color-primary)' : '1px solid #E0E0E0',
+                                backgroundColor: type === 'general' ? '#E0F7FA' : 'white'
+                            }}
+                        >
                             <input type="radio" name="type" checked={type === 'general'} onChange={() => setType('general')} />
                             <span>General</span>
                         </label>
-                        <label className="flex align-center gap-sm" style={{ padding: '12px', border: type === 'specialty' ? '2px solid var(--color-primary)' : '1px solid #E0E0E0', borderRadius: '8px', flex: 1, backgroundColor: type === 'specialty' ? '#E0F7FA' : 'white' }}>
+                        <label
+                            className="type-radio-label"
+                            style={{
+                                border: type === 'specialty' ? '2px solid var(--color-primary)' : '1px solid #E0E0E0',
+                                backgroundColor: type === 'specialty' ? '#E0F7FA' : 'white'
+                            }}
+                        >
                             <input type="radio" name="type" checked={type === 'specialty'} onChange={() => setType('specialty')} />
                             <span>Especialidad</span>
                         </label>
                     </div>
                     {type === 'specialty' && (
-                        <select style={{ width: '100%', padding: '12px', borderRadius: '8px', border: '1px solid #E0E0E0' }}>
+                        <select className="specialty-select">
                             <option>Cardiología</option>
                             <option>Dermatología</option>
                             <option>Pediatría</option>
@@ -42,51 +59,37 @@ const RequestConsult = () => {
                     )}
                 </section>
 
-
-
                 {/* Description */}
-                <section style={{ marginBottom: '24px' }}>
-                    <h3 className="text-bold" style={{ marginBottom: '16px' }}>Descripción</h3>
+                <section className="request-section">
+                    <h3 className="request-section-title">Descripción</h3>
                     <textarea
                         placeholder="Describe tu síntoma o motivo de consulta..."
-                        style={{ width: '100%', padding: '12px', borderRadius: '8px', border: '1px solid #E0E0E0', minHeight: '100px', resize: 'none' }}
+                        className="description-textarea"
                     />
-                    <div style={{ textAlign: 'right', fontSize: '12px', color: '#999' }}>0/500</div>
+                    <div className="char-count">0/500</div>
                 </section>
 
                 {/* Info Shared */}
                 <section>
-                    <h3 className="text-bold" style={{ marginBottom: '1rem' }}>Compartir Información Relevante</h3>
-                    <div className="flex flex-col gap-sm">
-                        <label className="flex align-center gap-sm"><input type="checkbox" defaultChecked /> Compartir signos vitales</label>
-                        <label className="flex align-center gap-sm"><input type="checkbox" defaultChecked /> Compartir medicación actual</label>
+                    <h3 className="request-section-title">Compartir Información Relevante</h3>
+                    <div className="checkbox-group">
+                        <label className="checkbox-label"><input type="checkbox" defaultChecked /> Compartir signos vitales</label>
+                        <label className="checkbox-label"><input type="checkbox" defaultChecked /> Compartir medicación actual</label>
                     </div>
                 </section>
 
             </div>
 
-            <div style={{ display: 'flex', gap: '1rem', padding: '2rem', borderTop: '1px solid #f0f0f0', alignItems: 'center' }}>
+            <div className="request-footer">
                 <button
                     onClick={() => setUrgency(urgency === 'normal' ? 'urgent' : 'normal')}
-                    style={{
-                        padding: '12px',
-                        borderRadius: '8px',
-                        border: urgency === 'urgent' ? '2px solid var(--color-danger)' : '1px solid #E0E0E0',
-                        backgroundColor: urgency === 'urgent' ? '#E0F7FA' : 'white',
-                        color: urgency === 'urgent' ? 'var(--color-danger)' : '#666',
-                        fontWeight: '600',
-                        display: 'flex',
-                        flexDirection: 'column',
-                        alignItems: 'center',
-                        justifyContent: 'center',
-                        minWidth: '80px',
-                        cursor: 'pointer'
-                    }}
+                    className="urgency-btn"
+                    style={urgencyStyle}
                 >
-                    <span style={{ fontSize: '20px' }}>{urgency === 'urgent' ? '🚨' : '📅'}</span>
-                    <span style={{ fontSize: '10px' }}>{urgency === 'urgent' ? 'Urgente' : 'Normal'}</span>
+                    <span className="urgency-icon">{urgency === 'urgent' ? '🚨' : '📅'}</span>
+                    <span className="urgency-label">{urgency === 'urgent' ? 'Urgente' : 'Normal'}</span>
                 </button>
-                <div style={{ flex: 1 }}>
+                <div className="action-btn-wrapper">
                     <Button fullWidth onClick={() => navigate('/consultations/doctors')}>
                         Buscar Médico
                     </Button>

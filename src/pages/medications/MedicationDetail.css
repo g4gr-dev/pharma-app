@@ -1,0 +1,138 @@
+.medication-detail-container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    background-color: var(--c_white);
+}
+
+.med-detail-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 24px;
+}
+
+.detail-back-btn {
+    background: none;
+    padding: 0;
+    border: none;
+    cursor: pointer;
+}
+
+.detail-back-icon {
+    font-size: 24px;
+}
+
+.detail-header-title {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.detail-edit-icon {
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.detail-content {
+    padding: 24px;
+    overflow-y: auto;
+    flex-grow: 1;
+}
+
+.main-info-section {
+    text-align: center;
+    margin-bottom: 32px;
+}
+
+.detail-icon-circle {
+    width: 80px;
+    height: 80px;
+    background-color: #E3F2FD;
+    border-radius: 50%;
+    margin: 0 auto 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 40px;
+}
+
+.med-detail-name {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.med-detail-info {
+    color: var(--color-text-secondary);
+    font-size: 18px;
+}
+
+.info-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-bottom: 32px;
+}
+
+.info-card {
+    padding: 16px;
+    text-align: center;
+}
+
+.info-label {
+    font-size: 12px;
+    color: #666;
+}
+
+.info-value {
+    font-weight: 600;
+}
+
+.info-value.good {
+    color: var(--color-success);
+}
+
+.history-section-title {
+    font-weight: bold;
+    margin-bottom: 16px;
+}
+
+.history-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+}
+
+.history-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.history-item-status {
+    font-weight: 500;
+}
+
+.history-item-time {
+    font-size: 12px;
+    color: #666;
+}
+
+.history-check {
+    color: var(--color-success);
+}
+
+.detail-footer {
+    padding: 24px;
+}
+
+.delete-btn-container {
+    margin-top: 12px;
+}
+
+.delete-btn {
+    background-color: #FFEBEE !important;
+    color: #D32F2F !important;
+    border: none !important;
+}

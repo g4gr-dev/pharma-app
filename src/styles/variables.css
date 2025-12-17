@@ -4,45 +4,80 @@
   --color-primary-light: #83C5BE;
   --color-secondary: #2A9D8F;
   --color-accent: #E29578;
-  
+
   --color-text-main: #222222;
   --color-text-secondary: #666666;
   --color-text-light: #FFFFFF;
-  
+
   --color-bg-body: #F4F6F8;
   --color-bg-card: #FFFFFF;
   --color-bg-input: #F0F2F4;
-  
+
   --color-success: #28a745;
   --color-warning: #ffc107;
   --color-danger: #dc3545;
-  
+
+  --c_white: #FFFFFF;
+  --c_black: #000000;
+  --c_blue950: #162456;
+  --c_blue900: #1c398e;
+  --c_blue800: #193cb8;
+  --c_blue700: #1447e6;
+  --c_blue600: #155dfc;
+  --c_blue500: #2b7fff;
+  --c_blue400: #51a2ff;
+  --c_blue300: #8ec5ff;
+  --c_blue200: #bedbff;
+  --c_blue100: #dbeafe;
+  --c_blue50: #eff6ff;
+  --c_red950: #460809;
+  --c_red900: #82181a;
+  --c_red800: #9f0712;
+  --c_red700: #c10007;
+  --c_red600: #e7000b;
+  --c_red500: #fb2c36;
+  --c_red400: #ff6467;
+  --c_red300: #ffa2a2;
+  --c_red200: #ffc9c9;
+  --c_red100: #ffe2e2;
+  --c_red50: #fef2f2;
+  --c_slate950: #020618;
+  --c_slate900: #0f172b;
+  --c_slate800: #1d293d;
+  --c_slate700: #314158;
+  --c_slate600: #45556c;
+  --c_slate500: #62748e;
+  --c_slate400: #90a1b9;
+  --c_slate300: #cad5e2;
+  --c_slate200: #e2e8f0;
+  --c_slate100: #f1f5f9;
+  --c_slate50: #f8fafc;
+
   /* Typography */
-  --font-family-base: 'Inter', system-ui, -apple-system, sans-serif;
-  --font-size-xs: 12px;
-  --font-size-sm: 14px;
-  --font-size-md: 16px;
-  --font-size-lg: 20px;
-  --font-size-xl: 24px;
-  --font-size-xxl: 32px;
-  
+  --font-family-base: 'Gotham Rounded', 'Inter', system-ui, -apple-system, sans-serif;
+
+  --font-weight-normal: 400;
+  --font-weight-medium: calc(var(--font-weight-normal) + 100);
+  --font-weight-semibold: calc(var(--font-weight-medium) + 100);
+  --font-weight-bold: calc(var(--font-weight-semibold) + 100);
+
   /* Spacing */
   --spacing-xs: 4px;
   --spacing-sm: 8px;
   --spacing-md: 16px;
   --spacing-lg: 24px;
   --spacing-xl: 32px;
-  
+
   /* Borders */
   --border-radius-sm: 8px;
   --border-radius-md: 12px;
   --border-radius-lg: 20px;
   --border-radius-round: 50%;
-  
+
   /* Shadows */
-  --shadow-sm: 0 2px 4px rgba(0,0,0,0.05);
-  --shadow-md: 0 4px 12px rgba(0,0,0,0.08);
-  --shadow-lg: 0 8px 24px rgba(0,0,0,0.12);
+  --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.08);
+  --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.12);
 
   /* Transitions */
   --transition-fast: 0.2s ease;

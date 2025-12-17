@@ -1,0 +1,119 @@
+.health-panel-container {
+    padding-bottom: 70px;
+    background-color: var(--c_white);
+    height: 100%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+.health-panel-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 24px;
+    position: sticky;
+    top: 0;
+    background-color: white;
+    z-index: 10;
+}
+
+.nav-icon {
+    background: none;
+    padding: 0;
+    border: none;
+    cursor: pointer;
+}
+
+.header-title-text {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.add-vital-icon {
+    font-size: 24px;
+    color: var(--color-primary);
+}
+
+.health-content {
+    padding: 24px;
+    overflow-y: auto;
+    flex-grow: 1;
+}
+
+.vitals-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+}
+
+.vital-card {
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    cursor: pointer;
+}
+
+.vital-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.vital-icon {
+    font-size: 20px;
+}
+
+.vital-status {
+    font-size: 10px;
+    padding: 2px 6px;
+    border-radius: 4px;
+}
+
+.vital-title {
+    font-size: 12px;
+    color: #666;
+}
+
+.vital-value {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.vital-unit {
+    font-size: 12px;
+    font-weight: normal;
+    color: #999;
+}
+
+.mini-chart {
+    height: 20px;
+    display: flex;
+    align-items: flex-end;
+    gap: 2px;
+    opacity: 0.5;
+}
+
+.chart-bar {
+    flex: 1;
+    border-radius: 2px;
+}
+
+.summary-card {
+    margin-top: 24px;
+    padding: 16px;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+}
+
+.summary-title {
+    font-size: 16px;
+    margin-bottom: 8px;
+}
+
+.summary-text {
+    font-size: 14px;
+    opacity: 0.9;
+    line-height: 1.5;
+}

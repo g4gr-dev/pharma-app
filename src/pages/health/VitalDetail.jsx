@@ -1,5 +1,6 @@
 import React from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
+import './VitalDetail.css';
 
 const VitalDetail = () => {
     const navigate = useNavigate();
@@ -10,36 +11,36 @@ const VitalDetail = () => {
     const color = id === 'bp' ? '#4CAF50' : '#2196F3';
 
     return (
-        <div className="flex flex-col h-full bg-white">
+        <div className="vital-detail-container">
             {/* Header */}
-            <div className="flex align-center justify-between" style={{ padding: '16px 24px' }}>
-                <button onClick={() => navigate(-1)} style={{ background: 'none', padding: 0 }}>
-                    <span style={{ fontSize: '24px' }}>←</span>
+            <div className="vital-detail-header">
+                <button onClick={() => navigate(-1)} className="header-btn">
+                    <span className="back-arrow">←</span>
                 </button>
-                <span className="text-bold" style={{ fontSize: '18px' }}>{title}</span>
-                <span style={{ fontSize: '20px' }}>⚙️</span>
+                <span className="header-title">{title}</span>
+                <span className="settings-icon">⚙️</span>
             </div>
 
-            <div className="scroll-content flex-grow" style={{ padding: '24px', overflowY: 'auto' }}>
+            <div className="vital-content">
 
                 {/* Chart Area */}
-                <div className="card" style={{ height: '250px', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '24px' }}>
-                    <div style={{ textAlign: 'center', color: '#ccc' }}>
+                <div className="card chart-card">
+                    <div className="chart-placeholder">
                         <div>[Gráfico de {title}]</div>
-                        <div style={{ fontSize: '12px' }}>Últimos 30 días</div>
+                        <div className="chart-subtitle">Últimos 30 días</div>
                     </div>
                 </div>
 
                 {/* History List */}
-                <h3 className="text-bold" style={{ marginBottom: '16px' }}>Historial</h3>
-                <div className="flex flex-col gap-md">
+                <h3 className="history-section-title">Historial</h3>
+                <div className="history-list">
                     {[1, 2, 3, 4, 5].map(i => (
-                        <div key={i} className="flex justify-between align-center" style={{ padding: '12px', borderBottom: '1px solid #f0f0f0' }}>
+                        <div key={i} className="history-item">
                             <div>
-                                <div style={{ fontWeight: '500' }}>120/80 mmHg</div>
-                                <div style={{ fontSize: '12px', color: '#666' }}>15 Oct, 08:00 AM</div>
+                                <div className="history-value">120/80 mmHg</div>
+                                <div className="history-date">15 Oct, 08:00 AM</div>
                             </div>
-                            <span style={{ fontSize: '12px', padding: '4px 8px', borderRadius: '12px', backgroundColor: '#E8F5E9', color: 'green' }}>Normal</span>
+                            <span className="status-badge">Normal</span>
                         </div>
                     ))}
                 </div>
