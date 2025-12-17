@@ -13,7 +13,7 @@ const Menu = () => {
         { label: 'Pastillero Virtual', icon: '💊', path: '/medications' },
         { label: 'Historial Médico', icon: '📋', path: '/history' },
         { label: 'Panel de Salud', icon: '❤️', path: '/health' },
-        { label: 'Videoconsultas', icon: '📹', path: '/consultations/request' },
+        { label: 'Telemedicina', icon: '📹', path: '/consultations/request' },
         { label: 'Farmacia & Pedidos', icon: '🛍️', path: '/orders/catalog' },
         { label: 'Configuración', icon: '⚙️', path: '/preferences' },
     ];

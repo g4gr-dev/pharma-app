@@ -31,7 +31,7 @@ describe('Dashboard Component', () => {
             </MemoryRouter>
         );
         expect(screen.getByText('Pastillero Virtual')).toBeInTheDocument();
-        expect(screen.getByText('Próxima Cita')).toBeInTheDocument();
+        expect(screen.getByText('Próximo Turno')).toBeInTheDocument();
         expect(screen.getByText('Solicitar Consulta')).toBeInTheDocument();
         expect(screen.getByText('Pedir Medicamentos')).toBeInTheDocument();
     });
@@ -42,22 +42,13 @@ describe('Dashboard Component', () => {
                 <Dashboard />
             </MemoryRouter>
         );
-        const medicationsButton = screen.getByText('Mis Medicamentos');
+        const medicationsButton = screen.getByText('Pastillero Virtual');
         // The click handler is on the parent div card
         fireEvent.click(medicationsButton.closest('.quick-action-card'));
         expect(mockNavigate).toHaveBeenCalledWith('/medications');
     });
 
-    it('renders health panel with vitals', () => {
-        render(
-            <MemoryRouter>
-                <Dashboard />
-            </MemoryRouter>
-        );
-        expect(screen.getByText('Panel de Salud')).toBeInTheDocument();
-        expect(screen.getByText('Presión Arterial')).toBeInTheDocument();
-        expect(screen.getByText('120/80')).toBeInTheDocument();
-    });
+
 
     it('renders reminders', () => {
         render(

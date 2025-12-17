@@ -13,7 +13,7 @@ const Sidebar = () => {
         { label: 'Historial', icon: '📋', path: '/history' },
         { label: 'Credenciales', icon: '💳', path: '/credentials' },
         { label: 'Familia', icon: '👨‍👩‍👧‍👦', path: '/family' },
-        { label: 'Videoconsultas', icon: '📹', path: '/consultations/request' },
+        { label: 'Telemedicina', icon: '📹', path: '/consultations/request' },
         { label: 'Salud', icon: '❤️', path: '/health' },
         { label: 'Perfil', icon: '👤', path: '/profile' },
     ];

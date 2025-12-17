@@ -55,7 +55,7 @@ const Preferences = () => {
 
                     {[
                         { key: 'medication', label: 'Recordatorios de medicación' },
-                        { key: 'appointments', label: 'Recordatorios de citas' },
+                        { key: 'appointments', label: 'Recordatorios de turnos' },
                         { key: 'healthAlerts', label: 'Alertas de salud' },
                         { key: 'promotions', label: 'Promociones y novedades' }
                     ].map(item => (

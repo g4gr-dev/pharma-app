@@ -6,14 +6,11 @@ import './Dashboard.css';
 const Dashboard = () => {
     const navigate = useNavigate();
     // Mock Metrics
-    const vitals = [
-        { title: 'Presión Arterial', value: '120/80', unit: 'mmHg', color: '#FF6B6B' },
-        { title: 'Frecuencia Cardíaca', value: '72', unit: 'bpm', color: '#4ECDC4' },
-    ];
+
 
     const quickActions = [
         { label: 'Pastillero Virtual', icon: '💊', color: 'var(--color-primary-light)', bg: '#E0F7FA', path: '/medications' },
-        { label: 'Próxima Cita', icon: '📅', color: '#4CAF50', bg: '#E8F5E9', path: '/consultations/video' }, // Demo link
+        { label: 'Próximo Turno', icon: '📅', color: '#4CAF50', bg: '#E8F5E9', path: '/consultations/video' }, // Demo link
         { label: 'Solicitar Consulta', icon: '📹', color: '#2196F3', bg: '#E3F2FD', path: '/consultations/request' },
         { label: 'Pedir Medicamentos', icon: '🛍️', color: '#FF9800', bg: '#FFF3E0', path: '/orders/review' },
     ];
