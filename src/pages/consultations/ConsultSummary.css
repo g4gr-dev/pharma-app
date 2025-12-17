@@ -1,0 +1,124 @@
+.consult-summary-container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    background-color: var(--c_white);
+}
+
+.consult-summary-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 24px;
+}
+
+.close-btn {
+    background: none;
+    padding: 0;
+    border: none;
+    cursor: pointer;
+}
+
+.close-icon {
+    font-size: 24px;
+}
+
+.summary-header-title {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.header-spacer {
+    width: 24px;
+}
+
+.summary-content {
+    padding: 24px;
+    overflow-y: auto;
+    flex-grow: 1;
+}
+
+.summary-hero {
+    text-align: center;
+    margin-bottom: 32px;
+}
+
+.doctor-avatar-circle {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin: 0 auto 16px;
+    overflow: hidden;
+}
+
+.hero-title {
+    font-size: 20px;
+}
+
+.hero-subtitle {
+    color: var(--color-text-secondary);
+}
+
+.summary-card {
+    padding: 16px;
+    margin-bottom: 24px;
+}
+
+.summary-card-title {
+    font-weight: bold;
+    margin-bottom: 8px;
+    color: var(--color-primary);
+}
+
+.diagnosis-text {
+    line-height: 1.5;
+}
+
+.indications-list {
+    padding-left: 20px;
+    line-height: 1.6;
+}
+
+.prescription-card {
+    padding: 16px;
+    border: 1px solid var(--color-primary-light);
+    background-color: #E0F7FA;
+}
+
+.prescription-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+}
+
+.prescription-title-text {
+    font-weight: bold;
+    color: var(--color-primary);
+}
+
+.new-badge {
+    font-size: 12px;
+    padding: 4px 8px;
+    background-color: white;
+    border-radius: 12px;
+    color: var(--color-primary);
+}
+
+.medication-details {
+    margin-bottom: 16px;
+}
+
+.medication-name {
+    font-weight: 600;
+}
+
+.medication-dosage {
+    font-size: 12px;
+    color: #666;
+}
+
+.summary-footer {
+    padding: 24px;
+    border-top: 1px solid #f0f0f0;
+}

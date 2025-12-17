@@ -1,6 +1,14 @@
 /* Global Reset & Base Styles */
 @import './variables.css';
 
+@font-face {
+    font-family: 'Gotham Rounded';
+    src: url('../assets/fonts/Gotham Rounded Medium.otf') format('opentype');
+    font-weight: 500;
+    font-style: normal;
+}
+
+
 * {
     box-sizing: border-box;
     margin: 0;
@@ -9,9 +17,10 @@
 
 body {
     font-family: var(--font-family-base);
+    font-style: normal;
+    line-height: 1.5;
     background-color: var(--color-bg-body);
     color: var(--color-text-main);
-    line-height: 1.5;
     -webkit-font-smoothing: antialiased;
 }
 
@@ -40,6 +49,12 @@ a {
     padding: var(--spacing-md);
 }
 
+.text-title {
+    margin-inline: 1rem;
+    font-size: var(--font-size-xl);
+    font-weight: var(--font-weight-bold);
+}
+
 .text-center {
     text-align: center;
 }
@@ -58,6 +73,11 @@ a {
 
 .text-warning {
     color: var(--color-warning);
+}
+
+.fGrid {
+    display: grid;
+    grid: repeat(auto-fill, minmax(250px, 1fr)) / repeat(auto-fill, minmax(250px, 1fr));
 }
 
 .flex {

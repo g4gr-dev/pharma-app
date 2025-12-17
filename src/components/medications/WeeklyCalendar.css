@@ -1,0 +1,112 @@
+.weekly-calendar-container {
+    /* Container styles if needed */
+}
+
+.day-picker {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 24px;
+    background-color: white;
+    padding: 8px 0;
+}
+
+.day-button {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: transparent;
+    color: #666;
+    border: none;
+    border-radius: 20px;
+    padding: 8px 12px;
+    min-width: 40px;
+    transition: 0.2s;
+    cursor: pointer;
+}
+
+.day-button.active {
+    background: var(--color-primary);
+    color: white;
+}
+
+.day-name {
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.day-number {
+    font-size: 10px;
+}
+
+.time-slots-container {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+}
+
+.time-slot-title {
+    font-size: 14px;
+    color: #888;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.med-card {
+    padding: 12px;
+    margin-bottom: 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.med-info {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+}
+
+.med-time {
+    font-size: 12px;
+    font-weight: bold;
+    background-color: #F5F5F5;
+    padding: 4px 8px;
+    border-radius: 4px;
+}
+
+.med-name {
+    font-weight: 600;
+}
+
+.med-dose {
+    font-size: 12px;
+    color: #666;
+}
+
+.med-actions {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: var(--spacing-sm);
+}
+
+.med-checkbox {
+    width: 20px;
+    height: 20px;
+}
+
+.order-more-btn {
+    font-size: 10px;
+    color: var(--color-primary);
+    background: none;
+    border: 1px solid var(--color-primary);
+    border-radius: 12px;
+    padding: 2px 8px;
+    cursor: pointer;
+}
+
+.empty-slot {
+    font-size: 12px;
+    color: #ccc;
+    font-style: italic;
+}

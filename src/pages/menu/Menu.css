@@ -1,0 +1,102 @@
+.menu-container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    background-color: var(--c_white);
+    position: relative;
+    padding-bottom: 70px;
+}
+
+.menu-header {
+    background-color: var(--color-primary);
+    color: white;
+    padding: 32px 24px 24px;
+}
+
+.user-profile-summary {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+    margin-bottom: 16px;
+}
+
+.user-avatar {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 30px;
+}
+
+.user-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.user-name {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.user-plan {
+    font-size: 14px;
+    opacity: 0.9;
+}
+
+.menu-content {
+    flex-grow: 1;
+    overflow-y: auto;
+    padding: 24px;
+}
+
+.menu-items-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+}
+
+.menu-item {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+    padding: 16px;
+    border-bottom: 1px solid #f0f0f0;
+    cursor: pointer;
+}
+
+.menu-item-icon {
+    font-size: 20px;
+    width: 32px;
+}
+
+.menu-item-label {
+    flex: 1;
+    font-weight: 500;
+}
+
+.menu-item-arrow {
+    color: #ccc;
+}
+
+.menu-footer {
+    margin-top: 32px;
+}
+
+.menu-footer-item {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+    padding: 16px;
+    cursor: pointer;
+}
+
+.menu-footer-item.help {
+    color: #666;
+}
+
+.menu-footer-item.logout {
+    color: var(--color-danger);
+}

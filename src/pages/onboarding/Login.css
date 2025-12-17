@@ -1,0 +1,55 @@
+.login-container {
+    padding: 24px;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--bg-primary);
+}
+
+.login-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 32px;
+    padding-top: 12px;
+}
+
+.login-back-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    margin-right: 16px;
+    color: var(--text-primary);
+}
+
+.login-back-icon {
+    font-size: 24px;
+}
+
+.login-title {
+    font-size: 24px;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.login-form {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.login-forgot-password {
+    text-align: right;
+    margin-top: -12px;
+}
+
+.login-forgot-link {
+    color: var(--primary-color);
+    font-size: 14px;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.login-actions {
+    margin-top: 24px;
+}

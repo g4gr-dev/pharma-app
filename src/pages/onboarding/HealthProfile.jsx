@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Button from '../../components/common/Button';
 import Input from '../../components/common/Input';
+import './HealthProfile.css';
 
 const HealthProfile = () => {
     const navigate = useNavigate();
@@ -18,107 +19,100 @@ const HealthProfile = () => {
     };
 
     return (
-        <div className="flex flex-col h-full bg-white">
+        <div className="health-profile-container">
             {/* Header */}
-            <div className="flex align-center justify-between" style={{ padding: '16px 24px', borderBottom: '1px solid #f0f0f0' }}>
-                <button onClick={() => navigate(-1)} style={{ background: 'none', padding: 0 }}>
-                    <span style={{ fontSize: '24px' }}>←</span>
+            <div className="health-profile-header">
+                <button onClick={() => navigate(-1)} className="health-profile-back-btn">
+                    <span className="health-profile-back-icon">←</span>
                 </button>
-                <div className="text-center">
-                    <span className="text-bold" style={{ fontSize: '16px', display: 'block' }}>Perfil de Salud</span>
-                    <span style={{ fontSize: '12px', color: 'var(--color-text-secondary)' }}>Paso 2 de 3</span>
+                <div className="health-profile-title-container">
+                    <span className="health-profile-title">Perfil de Salud</span>
+                    <span className="health-profile-step">Paso 2 de 3</span>
                 </div>
-                <div style={{ width: '24px' }}></div>
+                <div className="health-profile-spacer"></div>
             </div>
 
             {/* Form Content */}
-            <div className="flex-grow" style={{ overflowY: 'auto', padding: '24px' }}>
+            <div className="health-profile-content">
 
                 {/* Section 1: Basic Data */}
-                <section style={{ marginBottom: '32px' }}>
-                    <h3 className="text-bold" style={{ marginBottom: '16px', color: 'var(--color-primary)' }}>Datos Básicos</h3>
+                <section className="health-section">
+                    <h3 className="section-title">Datos Básicos</h3>
 
                     <Input label="Fecha de Nacimiento" type="date" />
 
-                    <div style={{ marginBottom: '16px' }}>
-                        <label style={{ display: 'block', marginBottom: '8px', fontSize: '14px', fontWeight: '600', color: 'var(--color-text-secondary)' }}>
+                    <div className="gender-container">
+                        <label className="gender-label">
                             Género
                         </label>
-                        <div className="flex gap-md">
+                        <div className="gender-options">
                             {['Masculino', 'Femenino', 'Otro'].map(g => (
-                                <label key={g} className="flex align-center gap-sm" style={{ padding: '8px 12px', border: '1px solid #E0E0E0', borderRadius: '8px', flex: 1, justifyContent: 'center' }}>
+                                <label key={g} className="gender-option">
                                     <input type="radio" name="gender" value={g} />
-                                    <span style={{ fontSize: '14px' }}>{g}</span>
+                                    <span className="gender-text">{g}</span>
                                 </label>
                             ))}
                         </div>
                     </div>
 
-                    <div className="flex gap-md">
-                        <div style={{ flex: 1 }}><Input label="Altura" placeholder="170" type="number" /></div>
-                        <div style={{ flex: 1 }}><Input label="Peso" placeholder="70" type="number" /></div>
+                    <div className="stats-row">
+                        <div className="stat-input"><Input label="Altura" placeholder="170" type="number" /></div>
+                        <div className="stat-input"><Input label="Peso" placeholder="70" type="number" /></div>
                     </div>
                 </section>
 
                 {/* Section 2: Medical Info */}
-                <section style={{ marginBottom: '32px' }}>
-                    <h3 className="text-bold" style={{ marginBottom: '16px', color: 'var(--color-primary)' }}>Información Médica</h3>
+                <section className="health-section">
+                    <h3 className="section-title">Información Médica</h3>
 
-                    <div style={{ marginBottom: '16px' }}>
-                        <label style={{ display: 'block', marginBottom: '8px', fontSize: '14px', fontWeight: '600', color: 'var(--color-text-secondary)' }}>
+                    <div className="conditions-container">
+                        <label className="conditions-label">
                             Condiciones Preexistentes
                         </label>
-                        <div className="flex flex-col gap-sm">
+                        <div className="conditions-list">
                             {['Diabetes', 'Hipertensión', 'Asma', 'Enfermedad cardíaca'].map(cond => (
-                                <label key={cond} className="flex align-center gap-sm">
-                                    <input type="checkbox" style={{ accentColor: 'var(--color-primary)' }} />
+                                <label key={cond} className="condition-item">
+                                    <input type="checkbox" className="checkbox-input" />
                                     <span>{cond}</span>
                                 </label>
                             ))}
                         </div>
                     </div>
 
-                    <div style={{ marginBottom: '16px' }}>
-                        <label style={{ display: 'block', marginBottom: '8px', fontSize: '14px', fontWeight: '600', color: 'var(--color-text-secondary)' }}>
+                    <div className="allergies-container">
+                        <label className="allergies-label">
                             Alergias
                         </label>
                         <textarea
                             placeholder="Describe tus alergias..."
                             rows="3"
-                            style={{
-                                width: '100%',
-                                padding: '12px',
-                                borderRadius: '8px',
-                                border: '1px solid #E0E0E0',
-                                backgroundColor: 'var(--color-bg-input)',
-                                resize: 'none'
-                            }}
+                            className="allergies-textarea"
                         />
                     </div>
 
-                    <div style={{ marginBottom: '16px' }}>
-                        <label style={{ display: 'block', marginBottom: '8px', fontSize: '14px', fontWeight: '600', color: 'var(--color-text-secondary)' }}>
+                    <div className="medication-container">
+                        <label className="medication-label">
                             Medicación Actual
                         </label>
-                        <div className="flex gap-sm" style={{ marginBottom: '8px' }}>
+                        <div className="medication-input-group">
                             <input
                                 value={newMed}
                                 onChange={(e) => setNewMed(e.target.value)}
                                 placeholder="Nombre del medicamento"
-                                style={{ flex: 1, padding: '8px', borderRadius: '8px', border: '1px solid #E0E0E0' }}
+                                className="medication-input"
                             />
                             <button
                                 onClick={addMedication}
-                                style={{ padding: '0 16px', backgroundColor: 'var(--color-primary)', color: 'white', borderRadius: '8px' }}
+                                className="add-medication-btn"
                             >
                                 +
                             </button>
                         </div>
-                        <ul className="flex flex-col gap-sm">
+                        <ul className="medication-list">
                             {medications.map((med, idx) => (
-                                <li key={idx} className="flex justify-between align-center" style={{ padding: '8px', background: '#F8F9FA', borderRadius: '8px' }}>
+                                <li key={idx} className="medication-item">
                                     <span>{med}</span>
-                                    <span style={{ color: 'var(--color-danger)', cursor: 'pointer' }} onClick={() => setMedications(medications.filter((_, i) => i !== idx))}>&times;</span>
+                                    <span className="remove-medication-btn" onClick={() => setMedications(medications.filter((_, i) => i !== idx))}>&times;</span>
                                 </li>
                             ))}
                         </ul>
@@ -127,8 +121,8 @@ const HealthProfile = () => {
 
                 {/* Section 3: Insurance */}
                 <section>
-                    <h3 className="text-bold" style={{ marginBottom: '16px', color: 'var(--color-primary)' }}>Obra Social</h3>
-                    <select style={{ width: '100%', padding: '12px', borderRadius: '8px', border: '1px solid #E0E0E0', marginBottom: '16px', backgroundColor: 'var(--color-bg-input)' }}>
+                    <h3 className="section-title">Obra Social</h3>
+                    <select className="insurance-select">
                         <option value="">Selecciona tu obra social</option>
                         <option value="osde">OSDE</option>
                         <option value="swiss">Swiss Medical</option>
@@ -139,7 +133,7 @@ const HealthProfile = () => {
 
             </div>
 
-            <div style={{ padding: '24px', borderTop: '1px solid #f0f0f0' }}>
+            <div className="health-profile-footer">
                 <Button fullWidth onClick={() => navigate('/preferences')}>Continuar</Button>
             </div>
         </div>

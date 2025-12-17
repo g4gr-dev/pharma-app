@@ -1,0 +1,102 @@
+.manual-med-container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    background-color: var(--c_white);
+}
+
+.manual-med-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 24px;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.med-header-back-btn {
+    background: none;
+    padding: 0;
+    border: none;
+    cursor: pointer;
+}
+
+.med-header-back-icon {
+    font-size: 24px;
+}
+
+.med-header-spacer {
+    width: 24px;
+}
+
+.manual-med-content {
+    padding: 24px;
+    overflow-y: auto;
+    flex-grow: 1;
+}
+
+.med-section {
+    margin-bottom: 24px;
+}
+
+.med-section-title {
+    font-weight: bold;
+    margin-bottom: 16px;
+    font-size: 14px;
+    color: var(--color-primary);
+}
+
+.med-unit-label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.med-select {
+    width: 100%;
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid #E0E0E0;
+}
+
+.freq-label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.next-time-card {
+    padding: 16px;
+    background-color: #F8F9FA;
+}
+
+.next-time-label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 12px;
+    color: #666;
+}
+
+.next-time-input {
+    padding: 8px;
+    border-radius: 4px;
+    border: 1px solid #ddd;
+}
+
+.reminder-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.reminder-checkbox {
+    width: 20px;
+    height: 20px;
+    accent-color: var(--color-primary);
+}
+
+.manual-med-footer {
+    padding: 24px;
+    border-top: 1px solid #f0f0f0;
+}

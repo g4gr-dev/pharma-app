@@ -2,29 +2,30 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Button from '../../components/common/Button';
 import Input from '../../components/common/Input';
+import './LogVital.css';
 
 const LogVital = () => {
     const navigate = useNavigate();
     const [type, setType] = useState('bp');
 
     return (
-        <div className="flex flex-col h-full bg-white">
+        <div className="log-vital-container">
             {/* Header */}
-            <div className="flex align-center justify-between" style={{ padding: '16px 24px' }}>
-                <button onClick={() => navigate(-1)} style={{ background: 'none', padding: 0 }}>
-                    <span style={{ fontSize: '24px' }}>←</span>
+            <div className="log-vital-header">
+                <button onClick={() => navigate(-1)} className="back-btn">
+                    <span className="back-arrow-icon">←</span>
                 </button>
-                <span className="text-bold" style={{ fontSize: '18px' }}>Registrar Medición</span>
-                <div style={{ width: '24px' }}></div>
+                <span className="header-title-log">Registrar Medición</span>
+                <div className="header-spacer-log"></div>
             </div>
 
-            <div className="scroll-content flex-grow" style={{ padding: '24px', overflowY: 'auto' }}>
+            <div className="log-vital-content">
 
-                <label style={{ display: 'block', marginBottom: '8px', fontSize: '14px', fontWeight: '600' }}>Tipo de Medición</label>
+                <label className="form-label">Tipo de Medición</label>
                 <select
                     value={type}
                     onChange={(e) => setType(e.target.value)}
-                    style={{ width: '100%', padding: '12px', borderRadius: '8px', border: '1px solid #E0E0E0', marginBottom: '24px' }}
+                    className="vital-type-select"
                 >
                     <option value="bp">Presión Arterial</option>
                     <option value="weight">Peso</option>
@@ -32,9 +33,9 @@ const LogVital = () => {
                     <option value="hr">Ritmo Cardíaco</option>
                 </select>
 
-                <section className="flex flex-col gap-md">
+                <section className="form-section">
                     {type === 'bp' ? (
-                        <div className="flex gap-md">
+                        <div className="bp-inputs">
                             <Input label="Sistólica" placeholder="120" type="number" />
                             <Input label="Diastólica" placeholder="80" type="number" />
                         </div>
@@ -45,17 +46,17 @@ const LogVital = () => {
                     <Input label="Fecha" type="datetime-local" />
 
                     <div>
-                        <label style={{ display: 'block', marginBottom: '8px', fontSize: '14px', fontWeight: '600' }}>Notas</label>
+                        <label className="form-label">Notas</label>
                         <textarea
                             placeholder="Opcional..."
-                            style={{ width: '100%', padding: '12px', borderRadius: '8px', border: '1px solid #E0E0E0', minHeight: '80px' }}
+                            className="notes-textarea"
                         />
                     </div>
                 </section>
 
             </div>
 
-            <div style={{ padding: '24px' }}>
+            <div className="submit-section">
                 <Button fullWidth onClick={() => navigate('/health')}>Guardar Registro</Button>
             </div>
         </div>

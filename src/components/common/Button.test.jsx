@@ -19,8 +19,7 @@ describe('Button Component', () => {
     it('applies fullWidth style when fullWidth prop is true', () => {
         render(<Button fullWidth>Full Width</Button>);
         const button = screen.getByText('Full Width');
-        // Since styles are inline, we check the style attribute
-        expect(button.closest('button')).toHaveStyle({ width: '100%' });
+        expect(button.closest('button')).toHaveClass('btn-full-width');
     });
 
     it('renders icon when icon prop is provided', () => {

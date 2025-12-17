@@ -1,6 +1,7 @@
 import React from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import Button from '../../components/common/Button';
+import './MedicationDetail.css';
 
 const MedicationDetail = () => {
     const navigate = useNavigate();
@@ -16,60 +17,50 @@ const MedicationDetail = () => {
     };
 
     return (
-        <div className="flex flex-col h-full bg-white">
+        <div className="medication-detail-container">
             {/* Header */}
-            <div className="flex align-center justify-between" style={{ padding: '16px 24px' }}>
-                <button onClick={() => navigate(-1)} style={{ background: 'none', padding: 0 }}>
-                    <span style={{ fontSize: '24px' }}>←</span>
+            <div className="med-detail-header">
+                <button onClick={() => navigate(-1)} className="detail-back-btn">
+                    <span className="detail-back-icon">←</span>
                 </button>
-                <span className="text-bold" style={{ fontSize: '18px' }}>Detalles</span>
-                <span style={{ fontSize: '20px' }}>✎</span>
+                <span className="detail-header-title">Detalles</span>
+                <span className="detail-edit-icon">✎</span>
             </div>
 
-            <div className="scroll-content flex-grow" style={{ padding: '24px' }}>
+            <div className="detail-content">
 
                 {/* Main Info */}
-                <div className="text-center" style={{ marginBottom: '32px' }}>
-                    <div style={{
-                        width: '80px',
-                        height: '80px',
-                        backgroundColor: '#E3F2FD',
-                        borderRadius: '50%',
-                        margin: '0 auto 16px',
-                        display: 'flex',
-                        alignItems: 'center',
-                        justifyContent: 'center',
-                        fontSize: '40px'
-                    }}>
+                <div className="main-info-section">
+                    <div className="detail-icon-circle">
                         💊
                     </div>
-                    <h1 style={{ fontSize: '24px', fontWeight: 'bold' }}>{medication.name}</h1>
-                    <p style={{ color: 'var(--color-text-secondary)', fontSize: '18px' }}>{medication.dose} • {medication.form}</p>
+                    <h1 className="med-detail-name">{medication.name}</h1>
+                    <p className="med-detail-info">{medication.dose} • {medication.form}</p>
                 </div>
 
                 {/* Info Grid */}
-                <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px', marginBottom: '32px' }}>
-                    <div className="card" style={{ padding: '16px', textAlign: 'center' }}>
-                        <div style={{ fontSize: '12px', color: '#666' }}>Frecuencia</div>
-                        <div style={{ fontWeight: '600' }}>{medication.frequency}</div>
+                <div className="info-grid">
+                    <div className="card info-card">
+                        <div className="info-label">Frecuencia</div>
+                        <div className="info-value">{medication.frequency}</div>
                     </div>
-                    <div className="card" style={{ padding: '16px', textAlign: 'center' }}>
-                        <div style={{ fontSize: '12px', color: '#666' }}>Adherencia</div>
-                        <div style={{ fontWeight: '600', color: 'var(--color-success)' }}>{medication.adh}%</div>
+                    <div className="card info-card">
+                        <div className="info-label">Adherencia</div>
+                        <div className="info-value good">{medication.adh}%</div>
                     </div>
                 </div>
 
                 {/* History */}
                 <section>
-                    <h3 className="text-bold" style={{ marginBottom: '16px' }}>Historial Reciente</h3>
-                    <div className="flex flex-col gap-md">
+                    <h3 className="history-section-title">Historial Reciente</h3>
+                    <div className="history-list">
                         {[1, 2, 3].map(i => (
-                            <div key={i} className="flex justify-between align-center" style={{ padding: '12px', borderBottom: '1px solid #f0f0f0' }}>
+                            <div key={i} className="history-item">
                                 <div>
-                                    <div style={{ fontWeight: '500' }}>Tomado</div>
-                                    <div style={{ fontSize: '12px', color: '#666' }}>Hoy, 06:00 AM</div>
+                                    <div className="history-item-status">Tomado</div>
+                                    <div className="history-item-time">Hoy, 06:00 AM</div>
                                 </div>
-                                <span style={{ color: 'var(--color-success)' }}>✓</span>
+                                <span className="history-check">✓</span>
                             </div>
                         ))}
                     </div>
@@ -77,10 +68,10 @@ const MedicationDetail = () => {
 
             </div>
 
-            <div style={{ padding: '24px' }}>
+            <div className="detail-footer">
                 <Button fullWidth variant="secondary" onClick={() => alert('Marcar como tomado')}>Marcar como tomado ahora</Button>
-                <div style={{ marginTop: '12px' }}>
-                    <Button fullWidth style={{ backgroundColor: '#FFEBEE', color: '#D32F2F', border: 'none' }} onClick={() => alert('Eliminar')}>Eliminar Medicamento</Button>
+                <div className="delete-btn-container">
+                    <Button fullWidth className="delete-btn" onClick={() => alert('Eliminar')}>Eliminar Medicamento</Button>
                 </div>
             </div>
         </div>

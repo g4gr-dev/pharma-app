@@ -4,6 +4,7 @@ import WelcomeDetails from './pages/onboarding/WelcomeDetails'
 import CreateAccount from './pages/onboarding/CreateAccount'
 import HealthProfile from './pages/onboarding/HealthProfile'
 import Preferences from './pages/onboarding/Preferences'
+import Login from './pages/onboarding/Login'
 import Dashboard from './pages/dashboard/Dashboard'
 import MedicationList from './pages/medications/MedicationList'
 import AddMedicationOptions from './pages/medications/AddMedicationOptions'
@@ -49,6 +50,7 @@ function App() {
         <Route path="/register" element={<CreateAccount />} />
         <Route path="/profile" element={<HealthProfile />} />
         <Route path="/preferences" element={<Preferences />} />
+        <Route path="/login" element={<Login />} />
         <Route path="/dashboard" element={<Dashboard />} />
 
         {/* Medication Routes */}

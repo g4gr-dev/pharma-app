@@ -1,4 +1,5 @@
 import React from 'react';
+import './Button.css';
 
 const Button = ({
     children,
@@ -9,57 +10,27 @@ const Button = ({
     type = 'button',
     className = ''
 }) => {
-    const baseStyle = {
-        padding: '1rem 2rem',
-        borderRadius: 'var(--border-radius-md)',
-        fontSize: 'var(--font-size-md)',
-        fontWeight: '600',
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-        gap: '0.5rem',
-        transition: 'var(--transition-fast)',
-        width: fullWidth ? 'fit-content' : 'auto',
-    };
 
-    const variants = {
-        primary: {
-            backgroundColor: 'var(--color-primary)',
-            color: 'white',
-        },
-        secondary: {
-            backgroundColor: 'transparent',
-            color: 'var(--color-primary)',
-            border: '1px solid var(--color-primary)',
-        },
-        ghost: {
-            backgroundColor: 'transparent',
-            color: 'var(--color-primary)',
-        },
-        google: {
-            backgroundColor: '#DB4437',
-            color: 'white',
-        },
-        facebook: {
-            backgroundColor: '#4267B2',
-            color: 'white',
-        },
-        email: {
-            backgroundColor: 'var(--color-primary)',
-            color: 'white',
+    const getVariantClass = (variant) => {
+        switch (variant) {
+            case 'secondary': return 'btn-secondary';
+            case 'ghost': return 'btn-ghost';
+            case 'google': return 'btn-google';
+            case 'facebook': return 'btn-facebook';
+            case 'email': return 'btn-email';
+            case 'primary':
+            default:
+                return 'btn-primary';
         }
     };
-
-    const style = { ...baseStyle, ...variants[variant] };
 
     return (
         <button
             type={type}
-            className={className}
-            style={style}
+            className={`btn-base ${getVariantClass(variant)} ${fullWidth ? 'btn-full-width' : ''} ${className}`}
             onClick={onClick}
         >
-            {icon && <span className="icon">{icon}</span>}
+            {icon && <span className="btn-icon">{icon}</span>}
             {children}
         </button>
     );

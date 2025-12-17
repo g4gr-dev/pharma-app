@@ -1,6 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import BottomNav from '../../components/layout/BottomNav';
+import './HealthPanel.css';
 
 const HealthPanel = () => {
     const navigate = useNavigate();
@@ -13,53 +14,52 @@ const HealthPanel = () => {
     ];
 
     return (
-        <div className="flex flex-col h-full bg-white relative" style={{ paddingBottom: '70px' }}>
+        <div className="health-panel-container">
             {/* Header */}
-            <div className="flex align-center justify-between" style={{ padding: '16px 24px', position: 'sticky', top: 0, backgroundColor: 'white', zIndex: 10 }}>
-                <button onClick={() => navigate('/dashboard')} style={{ background: 'none', padding: 0 }}>
+            <div className="health-panel-header">
+                <button onClick={() => navigate('/dashboard')} className="nav-icon">
                     <span style={{ fontSize: '24px' }}>←</span>
                 </button>
-                <span className="text-bold" style={{ fontSize: '18px' }}>Mi Salud</span>
-                <button onClick={() => navigate('/health/log')} style={{ background: 'none', padding: 0 }}>
-                    <span style={{ fontSize: '24px', color: 'var(--color-primary)' }}>+</span>
+                <span className="header-title-text">Mi Salud</span>
+                <button onClick={() => navigate('/health/log')} className="nav-icon">
+                    <span className="add-vital-icon">+</span>
                 </button>
             </div>
 
-            <div className="scroll-content flex-grow" style={{ padding: '24px', overflowY: 'auto' }}>
+            <div className="health-content">
 
-                <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px' }}>
+                <div className="vitals-grid">
                     {vitals.map(vital => (
                         <div
                             key={vital.id}
-                            className="card"
-                            style={{ padding: '16px', display: 'flex', flexDirection: 'column', gap: '8px', cursor: 'pointer' }}
+                            className="card vital-card"
                             onClick={() => navigate(`/health/${vital.id}`)}
                         >
-                            <div className="flex justify-between align-center">
-                                <div style={{ fontSize: '20px' }}>{vital.icon}</div>
-                                <span style={{ fontSize: '10px', padding: '2px 6px', borderRadius: '4px', backgroundColor: `${vital.color}20`, color: vital.color }}>
+                            <div className="vital-card-header">
+                                <div className="vital-icon">{vital.icon}</div>
+                                <span className="vital-status" style={{ backgroundColor: `${vital.color}20`, color: vital.color }}>
                                     {vital.status}
                                 </span>
                             </div>
                             <div>
-                                <div style={{ fontSize: '12px', color: '#666' }}>{vital.title}</div>
-                                <div style={{ fontSize: '20px', fontWeight: 'bold' }}>
-                                    {vital.value} <span style={{ fontSize: '12px', fontWeight: 'normal', color: '#999' }}>{vital.unit}</span>
+                                <div className="vital-title">{vital.title}</div>
+                                <div className="vital-value">
+                                    {vital.value} <span className="vital-unit">{vital.unit}</span>
                                 </div>
                             </div>
                             {/* Mini Chart Mock */}
-                            <div style={{ height: '20px', display: 'flex', alignItems: 'flex-end', gap: '2px', opacity: 0.5 }}>
+                            <div className="mini-chart">
                                 {[40, 60, 50, 80, 70, 90, 60].map((h, i) => (
-                                    <div key={i} style={{ flex: 1, backgroundColor: vital.color, height: `${h}%`, borderRadius: '2px' }}></div>
+                                    <div key={i} className="chart-bar" style={{ backgroundColor: vital.color, height: `${h}%` }}></div>
                                 ))}
                             </div>
                         </div>
                     ))}
                 </div>
 
-                <div className="card" style={{ marginTop: '24px', padding: '16px', background: 'linear-gradient(135deg, #667eea, #764ba2)', color: 'white' }}>
-                    <h3 style={{ fontSize: '16px', marginBottom: '8px' }}>Resumen Mensual</h3>
-                    <p style={{ fontSize: '14px', opacity: 0.9, lineHeight: '1.5' }}>
+                <div className="card summary-card">
+                    <h3 className="summary-title">Resumen Mensual</h3>
+                    <p className="summary-text">
                         Tu salud cardiovascular ha mejorado un 5% este mes. Sigue manteniendo tu peso estable.
                     </p>
                 </div>

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import BottomNav from '../../components/layout/BottomNav';
+import './HistoryList.css';
 
 const HistoryList = () => {
   const navigate = useNavigate();
@@ -15,36 +16,27 @@ const HistoryList = () => {
   const filteredEvents = filter === 'all' ? events : events.filter(e => e.type === filter);
 
   return (
-    <div className="flex flex-col h-full bg-white relative" style={{ paddingBottom: '70px' }}>
+    <div className="history-list-container">
       {/* Header */}
-      <div className="flex align-center justify-between" style={{ padding: '16px 24px', position: 'sticky', top: 0, backgroundColor: 'white', zIndex: 10 }}>
-        <button onClick={() => navigate('/dashboard')} style={{ background: 'none', padding: 0 }}>
-          <span style={{ fontSize: '24px' }}>←</span>
+      <div className="history-list-header">
+        <button onClick={() => navigate('/dashboard')} className="history-back-btn">
+          <span className="history-back-icon">←</span>
         </button>
-        <span className="text-bold" style={{ fontSize: '18px' }}>Historial Médico</span>
-        <button onClick={() => navigate('/history/upload')} style={{ background: 'none', padding: 0 }}>
-          <span style={{ fontSize: '24px', color: 'var(--color-primary)' }}>+</span>
+        <span className="history-header-title">Historial Médico</span>
+        <button onClick={() => navigate('/history/upload')} className="history-add-btn">
+          <span className="history-add-icon">+</span>
         </button>
       </div>
 
-      <div className="scroll-content flex-grow" style={{ padding: '24px', overflowY: 'auto' }}>
+      <div className="history-content">
 
         {/* Filters */}
-        <div className="flex gap-sm" style={{ marginBottom: '24px', overflowX: 'auto', paddingBottom: '4px' }}>
+        <div className="filters-container">
           {['all', 'consult', 'lab', 'vaccine'].map(f => (
             <button
               key={f}
               onClick={() => setFilter(f)}
-              style={{
-                padding: '8px 16px',
-                borderRadius: '20px',
-                border: '1px solid var(--color-primary)',
-                backgroundColor: filter === f ? 'var(--color-primary)' : 'white',
-                color: filter === f ? 'white' : 'var(--color-primary)',
-                fontSize: '12px',
-                textTransform: 'capitalize',
-                whiteSpace: 'nowrap'
-              }}
+              className={`filter-pill ${filter === f ? 'active' : 'inactive'}`}
             >
               {f === 'all' ? 'Todos' : f === 'consult' ? 'Consultas' : f === 'lab' ? 'Estudios' : 'Vacunas'}
             </button>
@@ -52,19 +44,19 @@ const HistoryList = () => {
         </div>
 
         {/* Timeline */}
-        <div className="flex flex-col gap-lg">
+        <div className="timeline-container">
           {filteredEvents.map((evt, idx) => (
-            <div key={evt.id} className="flex gap-md relative" onClick={() => navigate(`/history/${evt.id}`)} style={{ cursor: 'pointer' }}>
-              <div className="flex flex-col align-center" style={{ width: '40px' }}>
-                <div style={{ width: '40px', height: '40px', borderRadius: '50%', backgroundColor: '#F5F5F5', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '20px', zIndex: 1 }}>
+            <div key={evt.id} className="timeline-item" onClick={() => navigate(`/history/${evt.id}`)}>
+              <div className="timeline-left-col">
+                <div className="timeline-icon-circle">
                   {evt.icon}
                 </div>
-                {idx < filteredEvents.length - 1 && <div style={{ width: '2px', flex: 1, backgroundColor: '#eee', marginTop: '4px' }}></div>}
+                {idx < filteredEvents.length - 1 && <div className="timeline-line"></div>}
               </div>
-              <div className="card flex-grow" style={{ padding: '16px', marginBottom: '8px' }}>
-                <div style={{ fontSize: '12px', color: '#666', marginBottom: '4px' }}>{evt.date}</div>
-                <div className="text-bold" style={{ marginBottom: '4px' }}>{evt.title}</div>
-                <div style={{ fontSize: '12px', color: 'var(--color-text-secondary)' }}>
+              <div className="card timeline-card">
+                <div className="event-date">{evt.date}</div>
+                <div className="event-title">{evt.title}</div>
+                <div className="event-subtitle">
                   {evt.doctor || evt.facility}
                 </div>
               </div>

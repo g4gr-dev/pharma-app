@@ -1,8 +1,8 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import Button from '../../components/common/Button';
 import BottomNav from '../../components/layout/BottomNav';
 import WeeklyCalendar from '../../components/medications/WeeklyCalendar';
+import './MedicationList.css';
 
 const MedicationList = () => {
     const navigate = useNavigate();
@@ -14,77 +14,62 @@ const MedicationList = () => {
     ];
 
     return (
-        <div className="flex flex-col h-full bg-white relative" style={{ paddingBottom: '70px' }}>
+        <div className="medication-list-container">
 
             {/* Header */}
-            <div className="flex align-center justify-between" style={{ padding: '16px 24px', position: 'sticky', top: 0, backgroundColor: 'white', zIndex: 10 }}>
-                <button onClick={() => navigate('/dashboard')} style={{ background: 'none', padding: 0 }}>
-                    <span style={{ fontSize: '24px' }}>←</span>
+            <div className="medication-list-header">
+                <button onClick={() => navigate('/dashboard')} className="med-back-btn">
+                    <span className="med-header-icon">←</span>
                 </button>
-                <span className="text-bold" style={{ fontSize: '18px' }}>Mis Medicamentos</span>
-                <button onClick={() => navigate('/medications/add')} style={{ background: 'none', padding: 0 }}>
-                    <span style={{ fontSize: '24px', color: 'var(--color-primary)' }}>+</span>
+                <span className="med-header-title">Pastillero Virtual</span>
+                <button onClick={() => navigate('/medications/add')} className="med-add-btn">
+                    <span className="med-add-icon">+</span>
                 </button>
             </div>
 
-            <div className="scroll-content flex-grow" style={{ padding: '0 24px 24px', overflowY: 'auto' }}>
+            <div className="medication-content">
 
                 {/* Adherence Card */}
-                <div className="card flex align-center justify-between" style={{ marginBottom: '24px', background: 'linear-gradient(135deg, var(--color-primary), var(--color-secondary))', color: 'white' }}>
+                <div className="card adherence-card">
                     <div>
-                        <div style={{ fontSize: '32px', fontWeight: 'bold' }}>85%</div>
-                        <div style={{ fontSize: '12px', opacity: 0.9 }}>Adherencia Semanal</div>
+                        <div className="adherence-value">85%</div>
+                        <div className="adherence-label">Adherencia Semanal</div>
                     </div>
                     <div className="text-right">
-                        <div style={{ fontSize: '14px', fontWeight: '600' }}>¡Excelente!</div>
-                        <div style={{ fontSize: '12px', opacity: 0.9 }}>Sigue así</div>
+                        <div className="adherence-status">¡Excelente!</div>
+                        <div className="adherence-substatus">Sigue así</div>
                     </div>
                 </div>
 
                 {/* List */}
-                <div className="flex flex-col gap-md" style={{ marginBottom: '32px' }}>
-                    <h3 style={{ fontSize: '16px', fontWeight: 'bold' }}>Próximas Dosis</h3>
+                <div className="medication-list-section">
+                    <h3 className="section-title">Próximas Dosis</h3>
                     {medications.map(med => (
-                        <div key={med.id} className="card flex justify-between align-center" style={{ padding: '16px' }}>
-                            <div className="flex align-center gap-md">
-                                <div style={{
-                                    width: '40px',
-                                    height: '40px',
-                                    borderRadius: '50%',
-                                    backgroundColor: '#E3F2FD',
-                                    display: 'flex',
-                                    alignItems: 'center',
-                                    justifyContent: 'center',
-                                    fontSize: '20px'
-                                }}>
+                        <div key={med.id} className="card medication-card">
+                            <div className="med-info-group">
+                                <div className="med-icon-circle">
                                     💊
                                 </div>
                                 <div>
-                                    <div className="text-bold">{med.name}</div>
-                                    <div style={{ fontSize: '12px', color: 'var(--color-text-secondary)' }}>
+                                    <div className="med-name">{med.name}</div>
+                                    <div className="med-details-text">
                                         {med.dose} • {med.frequency}
                                     </div>
-                                    <div style={{ fontSize: '12px', color: 'var(--color-primary)', marginTop: '4px' }}>
+                                    <div className="med-next-dose">
                                         Próxima: {med.time}
                                     </div>
                                 </div>
                             </div>
 
-                            <div className="flex flex-col gap-sm">
+                            <div className="med-actions">
                                 <button
-                                    style={{
-                                        backgroundColor: med.taken ? '#E0E0E0' : '#4CAF50',
-                                        color: 'white',
-                                        padding: '8px 12px',
-                                        borderRadius: '8px',
-                                        fontSize: '12px'
-                                    }}
+                                    className={`take-btn ${med.taken ? 'taken' : 'pending'}`}
                                     onClick={() => alert(`Tomar ${med.name}`)}
                                 >
                                     {med.taken ? 'Tomado' : 'Tomar'}
                                 </button>
                                 <button
-                                    style={{ background: 'none', color: 'var(--color-text-secondary)', fontSize: '12px' }}
+                                    className="details-btn"
                                     onClick={() => navigate(`/medications/${med.id}`)}
                                 >
                                     Detalles
@@ -96,7 +81,7 @@ const MedicationList = () => {
 
                 {/* Calendar Section */}
                 <div>
-                    <h3 style={{ fontSize: '16px', fontWeight: 'bold', marginBottom: '16px' }}>Calendario Semanal</h3>
+                    <h3 className="calendar-section-title">Calendario Semanal</h3>
                     <WeeklyCalendar />
                 </div>
 

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import './CredentialDetail.css';
 
 const CredentialDetail = () => {
     const navigate = useNavigate();
@@ -11,58 +12,47 @@ const CredentialDetail = () => {
     return (
         <div className="flex flex-col h-full bg-black text-white">
             {/* Header */}
-            <div className="flex align-center justify-between" style={{ padding: '16px 24px' }}>
-                <button onClick={() => navigate(-1)} style={{ background: 'none', padding: 0, color: 'white' }}>
-                    <span style={{ fontSize: '24px' }}>✕</span>
+            <div className="credential-detail-header">
+                <button onClick={() => navigate(-1)} className="header-button">
+                    <span className="close-icon">✕</span>
                 </button>
-                <span className="text-bold" style={{ fontSize: '18px' }}>Vista Credencial</span>
-                <span style={{ fontSize: '20px' }}>⋮</span>
+                <span className="text-bold header-title">Vista Credencial</span>
+                <span className="menu-icon">⋮</span>
             </div>
 
-            <div className="flex-grow flex flex-col align-center justify-center p-md" style={{ padding: '24px' }}>
+            <div className="detail-content">
 
                 <div
                     onClick={() => setIsFlipped(!isFlipped)}
+                    className={`credential-flip-card ${isFlipped ? 'flipped' : ''}`}
                     style={{
-                        width: '100%',
-                        maxWidth: '350px',
-                        aspectRatio: '1.586', // Credit card ratio
                         backgroundColor: card.color,
-                        borderRadius: '16px',
-                        padding: '24px',
-                        color: 'white',
-                        position: 'relative',
-                        boxShadow: '0 0 20px rgba(255,255,255,0.1)',
-                        cursor: 'pointer',
-                        transition: 'transform 0.6s',
-                        transformStyle: 'preserve-3d',
-                        transform: isFlipped ? 'rotateY(180deg)' : 'rotateY(0deg)'
                     }}
                 >
                     {/* Front Mock */}
                     {!isFlipped ? (
-                        <div style={{ height: '100%', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
-                            <div className="flex justify-between align-start">
-                                <div style={{ fontWeight: 'bold', fontSize: '24px' }}>{card.provider}</div>
-                                <div style={{ fontSize: '16px', opacity: 0.8 }}>Plan {card.plan}</div>
+                        <div className="card-front">
+                            <div className="front-header">
+                                <div className="provider-text">{card.provider}</div>
+                                <div className="plan-text">Plan {card.plan}</div>
                             </div>
-                            <div style={{ fontSize: '22px', letterSpacing: '4px', fontFamily: 'monospace', textAlign: 'center' }}>
+                            <div className="member-id-text">
                                 {card.memberId}
                             </div>
-                            <div style={{ fontSize: '16px', textTransform: 'uppercase' }}>{card.holder}</div>
+                            <div className="holder-text">{card.holder}</div>
                         </div>
                     ) : (
-                        <div style={{ height: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center', transform: 'rotateY(180deg)' }}>
+                        <div className="card-back">
                             {/* Back Mock */}
-                            <div style={{ width: '100%', height: '40px', backgroundColor: '#333' }}></div>
-                            <div style={{ position: 'absolute', bottom: '24px', fontSize: '12px' }}>Emergencias: 0800-555-1234</div>
+                            <div className="magnetic-strip"></div>
+                            <div className="emergency-text">Emergencias: 0800-555-1234</div>
                         </div>
                     )}
                 </div>
 
-                <div style={{ marginTop: '40px', textAlign: 'center', opacity: 0.7 }}>
+                <div className="instructions-container">
                     <div>Toca la tarjeta para girarla</div>
-                    <div style={{ marginTop: '24px', fontSize: '14px' }}>
+                    <div className="brightness-hint">
                         Brillo de pantalla aumentado automáticamente
                     </div>
                 </div>

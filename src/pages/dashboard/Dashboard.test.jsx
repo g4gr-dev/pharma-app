@@ -30,7 +30,7 @@ describe('Dashboard Component', () => {
                 <Dashboard />
             </MemoryRouter>
         );
-        expect(screen.getByText('Mis Medicamentos')).toBeInTheDocument();
+        expect(screen.getByText('Pastillero Virtual')).toBeInTheDocument();
         expect(screen.getByText('Próxima Cita')).toBeInTheDocument();
         expect(screen.getByText('Solicitar Consulta')).toBeInTheDocument();
         expect(screen.getByText('Pedir Medicamentos')).toBeInTheDocument();
@@ -44,7 +44,7 @@ describe('Dashboard Component', () => {
         );
         const medicationsButton = screen.getByText('Mis Medicamentos');
         // The click handler is on the parent div card
-        fireEvent.click(medicationsButton.closest('.card'));
+        fireEvent.click(medicationsButton.closest('.quick-action-card'));
         expect(mockNavigate).toHaveBeenCalledWith('/medications');
     });
 

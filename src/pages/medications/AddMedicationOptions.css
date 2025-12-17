@@ -1,0 +1,64 @@
+.add-med-options-container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    background-color: var(--c_white);
+}
+
+.add-med-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 24px;
+}
+
+.add-med-back-btn {
+    background: none;
+    padding: 0;
+    border: none;
+    cursor: pointer;
+}
+
+.add-med-back-icon {
+    font-size: 24px;
+}
+
+.add-med-header-title {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.add-med-header-spacer {
+    width: 24px;
+}
+
+.add-med-content {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+    padding: 24px;
+}
+
+.add-med-option-card {
+    padding: 24px;
+    cursor: pointer;
+    transition: 0.2s;
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+}
+
+.add-med-option-icon {
+    font-size: 32px;
+}
+
+.add-med-option-title {
+    font-weight: bold;
+    font-size: 16px;
+    margin-bottom: 4px;
+}
+
+.add-med-option-desc {
+    font-size: 12px;
+    color: var(--color-text-secondary);
+}
