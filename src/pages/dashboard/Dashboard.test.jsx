@@ -56,7 +56,7 @@ describe('Dashboard Component', () => {
                 <Dashboard />
             </MemoryRouter>
         );
-        expect(screen.getByText('Próximos Recordatorios')).toBeInTheDocument();
+        expect(screen.getByText('Recordatorios')).toBeInTheDocument();
         expect(screen.getByText('Tomar Amoxicilina')).toBeInTheDocument();
     });
 });

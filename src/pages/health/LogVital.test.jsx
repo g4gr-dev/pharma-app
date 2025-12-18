@@ -61,7 +61,7 @@ describe('LogVital Component', () => {
 
         const saveButton = screen.getByText('Guardar Registro');
         fireEvent.click(saveButton);
-        expect(mockNavigate).toHaveBeenCalledWith('/health');
+        expect(mockNavigate).toHaveBeenCalledWith('/medical-history');
     });
 
     it('shows blood pressure inputs by default', () => {

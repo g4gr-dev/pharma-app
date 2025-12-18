@@ -57,7 +57,7 @@ const LogVital = () => {
             </div>
 
             <div className="submit-section">
-                <Button fullWidth onClick={() => navigate('/health')}>Guardar Registro</Button>
+                <Button fullWidth onClick={() => navigate('/medical-history')}>Guardar Registro</Button>
             </div>
         </div>
     );

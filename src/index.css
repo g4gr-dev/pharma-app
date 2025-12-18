@@ -1,7 +1,7 @@
 :root {
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   --f_lineHeight: 1.5;
-  font-weight: 400;
+  --f_fontWeight: 400;
   font-size: 16px;
 
   color-scheme: light dark;

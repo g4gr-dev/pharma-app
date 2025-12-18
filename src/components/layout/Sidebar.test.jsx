@@ -23,7 +23,7 @@ describe('Sidebar Component', () => {
 
         expect(screen.getByText('Central Farma')).toBeInTheDocument();
         expect(screen.getByText('Inicio')).toBeInTheDocument();
-        expect(screen.getByText('Medicamentos')).toBeInTheDocument();
+        expect(screen.getByText('Pastillero Virtual')).toBeInTheDocument();
         expect(screen.getByText('Configuración')).toBeInTheDocument();
     });
 

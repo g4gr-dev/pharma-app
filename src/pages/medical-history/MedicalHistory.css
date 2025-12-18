@@ -1,13 +1,13 @@
-.history-list-container {
+.medical-history-container {
+    padding-bottom: 70px;
+    background-color: var(--c_white);
+    height: 100%;
+    position: relative;
     display: flex;
     flex-direction: column;
-    height: 100%;
-    background-color: var(--c_white);
-    position: relative;
-    padding-bottom: 70px;
 }
 
-.history-list-header {
+.medical-history-header {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -18,40 +18,142 @@
     z-index: 10;
 }
 
-.history-back-btn {
+.nav-icon-btn {
     background: none;
     padding: 0;
     border: none;
     cursor: pointer;
 }
 
-.history-back-icon {
-    font-size: 24px;
-}
-
-.history-header-title {
+.header-title-text {
     font-size: 18px;
     font-weight: bold;
 }
 
-.history-add-btn {
-    background: none;
-    padding: 0;
-    border: none;
-    cursor: pointer;
-}
-
-.history-add-icon {
+.add-icon {
     font-size: 24px;
     color: var(--color-primary);
 }
 
-.history-content {
+.tab-switcher {
+    display: flex;
+    padding: 0 24px 16px;
+    gap: 16px;
+    border-bottom: 1px solid #eee;
+}
+
+.tab-btn {
+    flex: 1;
+    padding: 8px 0;
+    background: none;
+    border: none;
+    font-size: 14px;
+    color: #666;
+    cursor: pointer;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.tab-btn.active {
+    color: var(--color-primary);
+    font-weight: bold;
+}
+
+.tab-btn.active::after {
+    content: '';
+    position: absolute;
+    bottom: -16px;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background-color: var(--color-primary);
+}
+
+.medical-history-content {
     padding: 24px;
     overflow-y: auto;
     flex-grow: 1;
 }
 
+/* Vitals Styles */
+.vitals-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+}
+
+.medical-vital-card {
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    cursor: pointer;
+}
+
+.vital-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.vital-icon {
+    font-size: 20px;
+}
+
+.vital-status {
+    font-size: 10px;
+    padding: 2px 6px;
+    border-radius: 4px;
+}
+
+.vital-title {
+    font-size: 12px;
+    color: #666;
+}
+
+.vital-value {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.vital-unit {
+    font-size: 12px;
+    font-weight: normal;
+    color: #999;
+}
+
+.mini-chart {
+    height: 20px;
+    display: flex;
+    align-items: flex-end;
+    gap: 2px;
+    opacity: 0.5;
+}
+
+.chart-bar {
+    flex: 1;
+    border-radius: 2px;
+}
+
+.medical-summary-card {
+    margin-top: 24px;
+    padding: 16px;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+}
+
+.summary-title {
+    font-size: 16px;
+    margin-bottom: 8px;
+}
+
+.summary-text {
+    font-size: 14px;
+    opacity: 0.9;
+    line-height: 1.5;
+}
+
+/* Events Styles */
 .filters-container {
     display: flex;
     gap: var(--spacing-sm);

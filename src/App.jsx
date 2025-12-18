@@ -25,19 +25,18 @@ import AddFamilyMember from './pages/family/AddFamilyMember'
 import FamilyMemberDetail from './pages/family/FamilyMemberDetail'
 
 // History
-import HistoryList from './pages/history/HistoryList'
+import MedicalHistory from './pages/medical-history/MedicalHistory'
 import UploadDocument from './pages/history/UploadDocument'
 import DocumentViewer from './pages/history/DocumentViewer'
 
 // Health
-import HealthPanel from './pages/health/HealthPanel'
 import LogVital from './pages/health/LogVital'
 import VitalDetail from './pages/health/VitalDetail'
 
 import Menu from './pages/menu/Menu'
 
 // Credentials
-import CredentialList from './pages/credentials/CredentialList'
+
 import AddCredential from './pages/credentials/AddCredential'
 import CredentialDetail from './pages/credentials/CredentialDetail'
 
@@ -78,20 +77,18 @@ function App() {
         <Route path="/family/add" element={<AddFamilyMember />} />
         <Route path="/family/:id" element={<FamilyMemberDetail />} />
 
-        {/* History Routes */}
-        <Route path="/history" element={<HistoryList />} />
-        <Route path="/history/upload" element={<UploadDocument />} />
-        <Route path="/history/:id" element={<DocumentViewer />} />
+        {/* Medical History (Unified) */}
+        <Route path="/medical-history" element={<MedicalHistory />} />
+        <Route path="/medical-history/events/upload" element={<UploadDocument />} />
+        <Route path="/medical-history/events/:id" element={<DocumentViewer />} />
 
-        {/* Health Routes */}
-        <Route path="/health" element={<HealthPanel />} />
-        <Route path="/health/log" element={<LogVital />} />
-        <Route path="/health/:id" element={<VitalDetail />} />
-
-        {/* Credentials Routes */}
-        <Route path="/credentials" element={<CredentialList />} />
+        <Route path="/medical-history/vitals/log" element={<LogVital />} />
+        <Route path="/medical-history/vitals/:id" element={<VitalDetail />} />
+        {/* Credentials Sub-routes */}
         <Route path="/credentials/add" element={<AddCredential />} />
         <Route path="/credentials/:id" element={<CredentialDetail />} />
+
+
 
         {/* Menu */}
         <Route path="/menu" element={<Menu />} />

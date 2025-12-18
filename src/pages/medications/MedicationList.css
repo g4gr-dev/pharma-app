@@ -54,16 +54,18 @@
 
 .adherence-card {
     display: flex;
+    flex-flow: column nowrap;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
     margin-bottom: 24px;
     background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
     color: white;
 }
 
 .adherence-value {
-    font-size: 32px;
-    font-weight: bold;
+    font-size: 3em;
+    font-weight: calc(var(--f_fontWeight) + 200);
+    text-align: center;
 }
 
 .adherence-label {

@@ -10,11 +10,10 @@ const Sidebar = () => {
         { label: 'Inicio', icon: '🏠', path: '/dashboard' },
         { label: 'Pastillero Virtual', icon: '💊', path: '/medications' },
         { label: 'Solicitar Medicamento', icon: '🛍️', path: '/orders/review' },
-        { label: 'Historial', icon: '📋', path: '/history' },
-        { label: 'Credenciales', icon: '💳', path: '/credentials' },
+        { label: 'Historia clínica', icon: '📋', path: '/medical-history' },
+
         { label: 'Familia', icon: '👨‍👩‍👧‍👦', path: '/family' },
         { label: 'Telemedicina', icon: '📹', path: '/consultations/request' },
-        { label: 'Salud', icon: '❤️', path: '/health' },
         { label: 'Perfil', icon: '👤', path: '/profile' },
     ];
 

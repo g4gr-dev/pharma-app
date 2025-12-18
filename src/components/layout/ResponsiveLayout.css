@@ -44,14 +44,9 @@
         display: block;
         flex-shrink: 0;
         z-index: 100;
-        grid-area: 1 / 1 / 2 / 4;
-        /* Adjusted to 4/12 width for sidebar or whatever design requires. Original was 1/5. Let's stick closer to common ratios. */
-    }
-
-    /* Original was 1/5 and content 1/5 to 1/13. Let's keep original ratio if that is the design. */
-    .desktop-sidebar {
         grid-area: 1 / 1 / 2 / 5;
     }
+
 
     .main-content {
         grid-area: 1 / 5 / 2 / 13;
@@ -59,7 +54,6 @@
         max-width: none;
         background-color: #FAFAFA;
         display: block;
-        /* Reset centering */
         overflow-y: auto;
         height: 100vh;
     }

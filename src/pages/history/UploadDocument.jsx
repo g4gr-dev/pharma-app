@@ -69,7 +69,7 @@ const UploadDocument = () => {
       </div>
 
       <div className="upload-footer">
-        <Button fullWidth onClick={() => navigate('/history')}>Guardar</Button>
+        <Button fullWidth onClick={() => navigate('/medical-history')}>Guardar</Button>
       </div>
     </div>
   );
